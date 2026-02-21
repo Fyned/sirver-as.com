@@ -1,5 +1,6 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import WhatsAppBtn from './components/ui/WhatsAppBtn';
@@ -18,8 +19,28 @@ const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 
 function App() {
+  const [appReady, setAppReady] = useState(false);
+
+  useEffect(() => {
+    // Minimum 800ms loading screen göster + DOM hazır olana kadar bekle
+    const minDelay = new Promise((r) => setTimeout(r, 800));
+
+    const fontsReady = document.fonts
+      ? document.fonts.ready
+      : Promise.resolve();
+
+    Promise.all([minDelay, fontsReady]).then(() => {
+      setAppReady(true);
+    });
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen font-sans bg-[#ECEFF1]">
+      {/* İlk açılış loading screen'i */}
+      <AnimatePresence mode="wait">
+        {!appReady && <LoadingScreen key="initial-loader" isInitial />}
+      </AnimatePresence>
+
       <ScrollToTop />
       <ScrollProgress />
       <Header />

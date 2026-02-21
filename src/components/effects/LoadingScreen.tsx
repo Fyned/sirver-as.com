@@ -1,9 +1,28 @@
 import { motion } from 'framer-motion';
 import logoIcon from '../../assets/icons/logo-icon.svg';
 
-export default function LoadingScreen() {
+interface Props {
+  /** true = ilk açılış (fade-out animasyonu ile kapanır), false = Suspense fallback */
+  isInitial?: boolean;
+  onComplete?: () => void;
+}
+
+export default function LoadingScreen({ isInitial, onComplete }: Props) {
   return (
-    <div className="fixed inset-0 z-[9999] bg-sirver-secondary flex items-center justify-center">
+    <motion.div
+      initial={{ opacity: 1 }}
+      {...(isInitial
+        ? {
+            animate: { opacity: 1 },
+            exit: { opacity: 0, y: -20 },
+            transition: { duration: 0.6, ease: 'easeInOut' },
+            onAnimationComplete: (def: { opacity?: number }) => {
+              if (def.opacity === 0 && onComplete) onComplete();
+            },
+          }
+        : {})}
+      className="fixed inset-0 z-[9999] bg-sirver-secondary flex items-center justify-center"
+    >
       <motion.div
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -33,7 +52,18 @@ export default function LoadingScreen() {
             />
           ))}
         </div>
+
+        {isInitial && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="text-gray-500 text-xs tracking-widest uppercase mt-2"
+          >
+            Yükleniyor...
+          </motion.p>
+        )}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

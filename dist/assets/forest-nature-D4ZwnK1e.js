@@ -1,0 +1,1 @@
+import{t as e}from"./forest-nature-C23--EUJ.js";export{e as default};

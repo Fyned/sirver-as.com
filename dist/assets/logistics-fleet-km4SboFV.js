@@ -1,1 +1,0 @@
-var e=`/assets/biomass-energy-CiAsoWlb.jpg`,t=`/assets/logistics-fleet-B2BxcnFS.jpg`;export{e as n,t};
