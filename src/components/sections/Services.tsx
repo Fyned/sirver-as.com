@@ -1,18 +1,29 @@
 import { motion } from 'framer-motion';
 import { Factory, Truck, Flame, Wheat } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SectionReveal from '../effects/SectionReveal';
 
 // GÖRSELLER IMPORT
 import imgChipsHover from '../../assets/images/home/g50-chips-hover.jpg';
-// Yeni Mısır Sapı Görseli (Henüz yoksa placeholder kullanır)
-import imgCorn from '../../assets/images/home/corn-bale-tall.jpg'; 
+import imgCorn from '../../assets/images/home/corn-bale-tall.jpg';
 
-const ServiceCard = ({ title, desc, icon: Icon, link, className, children }: any) => (
-  <motion.div 
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.15, ease: 'easeOut' as const }
+  })
+};
+
+const ServiceCard = ({ title, desc, icon: Icon, link, className, children, index }: any) => (
+  <motion.div
+    custom={index}
+    variants={cardVariants}
+    initial="hidden"
+    whileInView="visible"
     viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
+    whileHover={{ y: -8 }}
     className={`bg-white p-6 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all group flex flex-col justify-between overflow-hidden relative ${className}`}
   >
     <div className="z-10 relative h-full flex flex-col">
@@ -20,12 +31,11 @@ const ServiceCard = ({ title, desc, icon: Icon, link, className, children }: any
         <div className="w-12 h-12 rounded-2xl bg-white/90 backdrop-blur-sm flex items-center justify-center text-sirver-secondary shadow-sm group-hover:scale-110 transition-transform duration-500">
           <Icon size={24} />
         </div>
-        {/* Link oku */}
         <Link to={link} className="w-8 h-8 rounded-full bg-white/20 hover:bg-white flex items-center justify-center text-white hover:text-sirver-secondary transition-all">
            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
         </Link>
       </div>
-      
+
       <div className="mt-auto">
         <h3 className="text-2xl font-heading font-bold text-white mb-2 drop-shadow-md">{title}</h3>
         <p className="text-gray-100 text-sm font-medium leading-relaxed opacity-90 drop-shadow-sm">{desc}</p>
@@ -39,70 +49,78 @@ export default function Services() {
   return (
     <section className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-heading font-bold text-sirver-secondary mb-4">
-            FAALİYET ALANLARIMIZ
-          </h2>
-          <p className="text-gray-600 text-lg">
-            Türkiye'nin biyokütle potansiyelini enerjiye dönüştürüyoruz.
-          </p>
-        </div>
+
+        <SectionReveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-sirver-secondary mb-4">
+              FAALİYET ALANLARIMIZ
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Türkiye'nin biyokütle potansiyelini enerjiye dönüştürüyoruz.
+            </p>
+          </div>
+        </SectionReveal>
 
         {/* BENTO GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(320px,auto)]">
-          
+
           {/* 1. KUTU: ORMAN (Geniş - Sol) */}
-          <ServiceCard 
-            title="Endüstriyel Odun Cipsi" 
+          <ServiceCard
+            title="Endüstriyel Odun Cipsi"
             desc="G30/G50 standartlarında, kabuksuz ve düşük nemli ormansal yakıt."
             icon={Factory}
             link="/hizmetler/odun-cipsi"
-            className="md:col-span-2 bg-sirver-primary"
+            className="md:col-span-2 bg-sirver-primary hover:shadow-glow"
+            index={0}
           >
-            {/* Arka Plan Görseli (Hover) */}
             <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
-               <img src={imgChipsHover} alt="Odun Cipsi" className="w-full h-full object-cover" />
+               <img src={imgChipsHover} alt="Odun Cipsi" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
           </ServiceCard>
 
           {/* 2. KUTU: TARIM (Dikey - Sağ) */}
-          <ServiceCard 
-            title="Mısır Sapı Balyası" 
+          <ServiceCard
+            title="Mısır Sapı Balyası"
             desc="Enerji ve hayvancılık için yüksek lifli, ekonomik büyük kare balyalar."
             icon={Wheat}
             link="/hizmetler/misir-sapi"
-            className="md:row-span-2 bg-yellow-600"
+            className="md:row-span-2 bg-yellow-600 hover:shadow-glow-accent"
+            index={1}
           >
              <div className="absolute inset-0 opacity-40 group-hover:opacity-50 transition-opacity duration-700">
-                {/* BURAYA YENİ MISIR GÖRSELİ GELECEK */}
-                <img src={imgCorn} alt="Mısır Sapı Balyası" className="w-full h-full object-cover" />
+                <img src={imgCorn} alt="Mısır Sapı Balyası" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
              </div>
              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
           </ServiceCard>
 
           {/* 3. KUTU: BİYOKÜTLE (Kare - Sol Alt) */}
-          <ServiceCard 
-            title="Biyokütle Yakıtı" 
+          <ServiceCard
+            title="Biyokütle Yakıtı"
             desc="Sanayi kazanları için özel karışımlı, yüksek kalorili reçete."
             icon={Flame}
             link="/hizmetler/biyokutle-yakiti"
-            className="bg-orange-600"
+            className="bg-orange-600 hover:shadow-glow-accent"
+            index={2}
           >
-             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
+             <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700">
+               <img src="/media/images/img07.webp" alt="Biyokütle Yakıtı" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+             </div>
              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
           </ServiceCard>
 
           {/* 4. KUTU: LOJİSTİK (Kare - Orta Alt) */}
-          <ServiceCard 
-            title="Güçlü Lojistik" 
+          <ServiceCard
+            title="Güçlü Lojistik"
             desc="Walking Floor tır filosu ile Türkiye geneli JIT teslimat."
             icon={Truck}
             link="/hizmetler/lojistik"
-            className="bg-blue-900"
+            className="bg-blue-900 hover:shadow-glow"
+            index={3}
           >
-             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-20"></div>
+             <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700">
+               <img src="/media/images/img09.webp" alt="Lojistik Filosu" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+             </div>
              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
           </ServiceCard>
 

@@ -1,0 +1,1 @@
+import{s as e}from"./index-AZWKhZLW.js";var t=e(`circle-check`,[[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}],[`path`,{d:`m9 12 2 2 4-4`,key:`dzmm74`}]]),n=`/assets/forest-residue-Bm1NYjMF.jpg`;export{t as n,n as t};

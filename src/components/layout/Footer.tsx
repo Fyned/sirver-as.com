@@ -36,6 +36,7 @@ export default function Footer() {
               <li><Link to="/" className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> Anasayfa</Link></li>
               <li><Link to="/kurumsal" className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> Hakkımızda</Link></li>
               <li><Link to="/surdurulebilirlik" className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> Sürdürülebilirlik</Link></li>
+              <li><Link to="/galeri" className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> Galeri</Link></li>
               <li><Link to="/iletisim" className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> İletişim</Link></li>
             </ul>
           </div>
@@ -98,10 +99,14 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-          <p>© 2025 Sirver A.Ş. Tüm hakları saklıdır.</p>
-          <div className="mt-2 md:mt-0 flex gap-4">
+          <p>© {new Date().getFullYear()} Sirver A.Ş. Tüm hakları saklıdır.</p>
+          <div className="mt-2 md:mt-0 flex gap-4 items-center">
             <span className="hover:text-white cursor-pointer">Gizlilik Politikası</span>
             <span className="hover:text-white cursor-pointer">KVKK Aydınlatma Metni</span>
+            <span className="text-gray-600">|</span>
+            <a href="https://dmckreatif.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              Created by <span className="font-bold text-gray-400 hover:text-sirver-primary transition-colors">DMC Kreatif</span>
+            </a>
           </div>
         </div>
       </div>

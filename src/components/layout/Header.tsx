@@ -24,20 +24,21 @@ export default function Header() {
     : 'text-sirver-secondary hover:text-sirver-primary';
 
   const logoFilter = isHome && !scrolled
-    ? 'brightness-0 invert' 
+    ? 'brightness-0 invert'
     : 'filter-none';
 
   const navLinks = [
     { name: 'Kurumsal', path: '/kurumsal' },
-    { name: 'Faaliyet Alanları', path: '/hizmetler' }, // İsim Değişti
+    { name: 'Faaliyet Alanları', path: '/hizmetler' },
     { name: 'Ürünler', path: '/urunler' },
     { name: 'Sürdürülebilirlik', path: '/surdurulebilirlik' },
+    { name: 'Galeri', path: '/galeri' },
     { name: 'İletişim', path: '/iletisim' },
   ];
 
   return (
     <div className="fixed w-full z-50 font-sans transition-all duration-300">
-      
+
       <div className={`bg-sirver-secondary text-white transition-all duration-500 overflow-hidden ${scrolled || !isHome ? 'h-0' : 'h-10'} flex items-center`}>
         <div className="container mx-auto px-4 flex justify-between text-xs font-medium tracking-wider text-gray-300">
           <div className="flex gap-6">
@@ -58,32 +59,32 @@ export default function Header() {
 
       <header className={`transition-all duration-500 border-b ${headerClass}`}>
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-          
+
           <Link to="/" className="relative z-50">
-             <img 
-               src={logoFull} 
-               alt="Sirver A.Ş." 
-               className={`transition-all duration-500 h-10 md:h-12 ${logoFilter}`} 
+             <img
+               src={logoFull}
+               alt="Sirver A.Ş."
+               className={`transition-all duration-500 h-10 md:h-12 ${logoFilter}`}
              />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                to={link.path} 
+              <Link
+                key={link.name}
+                to={link.path}
                 className={`text-sm font-bold uppercase tracking-wide transition-all duration-300 relative group ${textColor}`}
               >
                 {link.name}
                 <span className={`absolute -bottom-2 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full bg-sirver-primary`}></span>
               </Link>
             ))}
-            
-            <Link 
-              to="/iletisim" 
+
+            <Link
+              to="/iletisim"
               className={`flex items-center gap-2 px-6 py-2.5 rounded shadow-lg font-bold text-sm transition-all transform hover:-translate-y-0.5 ${
-                isHome && !scrolled 
-                  ? 'bg-sirver-accent text-white hover:bg-orange-600' 
+                isHome && !scrolled
+                  ? 'bg-sirver-accent text-white hover:bg-orange-600'
                   : 'bg-sirver-primary text-white hover:bg-green-800'
               }`}
             >
@@ -91,8 +92,8 @@ export default function Header() {
             </Link>
           </nav>
 
-          <button 
-            onClick={() => setIsOpen(!isOpen)} 
+          <button
+            onClick={() => setIsOpen(!isOpen)}
             className={`md:hidden relative z-50 p-2 rounded ${
               isHome && !scrolled ? 'text-white' : 'text-sirver-secondary'
             }`}
@@ -103,9 +104,9 @@ export default function Header() {
 
         <div className={`fixed inset-0 bg-[#ECEFF1] z-40 flex flex-col justify-center items-center gap-8 transition-all duration-500 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.path} 
+            <Link
+              key={link.name}
+              to={link.path}
               onClick={() => setIsOpen(false)}
               className="text-2xl font-heading font-bold text-sirver-secondary hover:text-sirver-primary transition-colors tracking-widest"
             >
