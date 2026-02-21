@@ -108,6 +108,9 @@ export default function Hero() {
             <img
               src={currentSrc}
               alt=""
+              width={1920}
+              height={1080}
+              fetchPriority="high"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -138,14 +141,14 @@ export default function Hero() {
       <div className="container mx-auto px-4 relative z-10 text-center text-white flex flex-col items-center justify-center h-full pb-24 md:pb-20">
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
           <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-block py-2 px-4 rounded-full bg-sirver-primary/80 border border-sirver-primary/50 text-white text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm shadow-lg"
           >
@@ -154,16 +157,16 @@ export default function Hero() {
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight drop-shadow-2xl tracking-tight">
             <motion.span
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.7 }}
               className="block text-white mb-2"
             >
               {t('hero.titleLine1')}
             </motion.span>
             <motion.span
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.7 }}
               className="text-transparent bg-clip-text bg-gradient-to-r from-sirver-primary via-green-400 to-sirver-accent"
             >
@@ -182,8 +185,8 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
           className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full"
         >
@@ -200,9 +203,9 @@ export default function Hero() {
       {/* 3. FLOATING VIDEO PiP */}
       {!isMobile && (
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 1.5, duration: 0.8, type: 'spring', stiffness: 100 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.5, duration: 0.6, ease: 'easeOut' }}
           className="absolute bottom-28 right-8 z-20 group"
         >
           <div className="relative w-56 h-36 rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border-2 border-white/20 hover:border-sirver-primary/60 transition-all duration-300 hover:scale-105 cursor-pointer"

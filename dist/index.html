@@ -36,6 +36,18 @@
 
     <title>Sirver A.Ş. | Endüstriyel Biyokütle ve Odun Cipsi Tedariği</title>
 
+    <!-- Critical CSS — ilk paint için gerekli minimum stiller -->
+    <style>
+      *,*::before,*::after{box-sizing:border-box;margin:0}
+      html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+      body{font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#ECEFF1;color:#1A1A1A}
+      #root{display:flex;flex-direction:column;min-height:100vh}
+      /* Loading screen — JS yüklenene kadar görünür */
+      .initial-loader{position:fixed;inset:0;z-index:9999;background:#1A2332;display:flex;align-items:center;justify-content:center}
+      .initial-loader::after{content:'';width:40px;height:40px;border:3px solid rgba(255,255,255,.1);border-top-color:#2E7D32;border-radius:50%;animation:spin .6s linear infinite}
+      @keyframes spin{to{transform:rotate(360deg)}}
+    </style>
+
     <!-- JSON-LD Organization Schema -->
     <script type="application/ld+json">
     {
@@ -65,13 +77,27 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-BgsKsvk3.js"></script>
+    <script type="module" crossorigin src="/assets/index-DFsgsqFQ.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-Cn8xt2Gj.js">
     <link rel="modulepreload" crossorigin href="/assets/motion-cq-IOset.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-CVw5nxiM.js">
     <link rel="stylesheet" crossorigin href="/assets/index-BEsMfMAS.css">
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Native loading indicator — React yüklenene kadar gösterilir -->
+    <div id="root">
+      <div class="initial-loader" id="native-loader"></div>
+    </div>
+    <script>
+      // React render edince native loader'ı kaldır
+      const observer = new MutationObserver(() => {
+        const loader = document.getElementById('native-loader');
+        if (loader && document.getElementById('root').children.length > 1) {
+          loader.remove();
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.getElementById('root'), { childList: true });
+    </script>
   </body>
 </html>

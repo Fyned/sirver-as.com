@@ -90,8 +90,8 @@ export default function ServicesPage() {
         {/* HERO */}
         <section className="container mx-auto px-4 mb-20 text-center">
            <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1 }}
              className="max-w-4xl mx-auto"
            >
              <span className="text-sirver-accent font-bold tracking-widest text-sm uppercase mb-4 block">{t('servicesPage.badge')}</span>

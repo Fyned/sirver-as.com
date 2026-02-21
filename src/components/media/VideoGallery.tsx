@@ -72,8 +72,8 @@ export default function VideoGallery({ items, categories, pageSize = 12 }: Video
         {visible.map((item, index) => (
           <motion.div
             key={item.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.5) }}
             className="group relative aspect-video rounded-xl overflow-hidden cursor-pointer bg-sirver-secondary"
             onClick={() => openLightbox(index)}

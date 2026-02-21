@@ -9,11 +9,10 @@ import imgChipsHover from '../../assets/images/home/g50-chips-hover.jpg';
 import imgCorn from '../../assets/images/home/corn-bale-tall.jpg';
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0 },
   visible: (i: number) => ({
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.15, ease: 'easeOut' as const }
+    transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' as const }
   })
 };
 
@@ -78,7 +77,7 @@ export default function Services() {
             index={0}
           >
             <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
-               <img src={imgChipsHover} alt="Odun Cipsi" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+               <img src={imgChipsHover} alt="Odun Cipsi" width={800} height={600} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
           </ServiceCard>
@@ -93,7 +92,7 @@ export default function Services() {
             index={1}
           >
              <div className="absolute inset-0 opacity-40 group-hover:opacity-50 transition-opacity duration-700">
-                <img src={imgCorn} alt="Mısır Sapı Balyası" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <img src={imgCorn} alt="Mısır Sapı Balyası" width={800} height={1200} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
              </div>
              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
           </ServiceCard>
@@ -108,7 +107,7 @@ export default function Services() {
             index={2}
           >
              <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700">
-               <img src="/media/images/img07.webp" alt="Biyokütle Yakıtı" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+               <img src="/media/images/img07.webp" alt="Biyokütle Yakıtı" width={800} height={600} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
              </div>
              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
           </ServiceCard>
@@ -123,7 +122,7 @@ export default function Services() {
             index={3}
           >
              <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700">
-               <img src="/media/images/img09.webp" alt="Lojistik Filosu" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+               <img src="/media/images/img09.webp" alt="Lojistik Filosu" width={800} height={600} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
              </div>
              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
           </ServiceCard>

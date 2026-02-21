@@ -10,11 +10,13 @@ interface SectionRevealProps {
   once?: boolean;
 }
 
+// transform: translate kullanarak layout shift olmadan animasyon
+// translate layout'u etkilemez, sadece paint layer'da hareket eder
 const directionMap: Record<string, { x: number; y: number }> = {
-  up: { x: 0, y: 40 },
-  down: { x: 0, y: -40 },
-  left: { x: 40, y: 0 },
-  right: { x: -40, y: 0 },
+  up: { x: 0, y: 10 },
+  down: { x: 0, y: -10 },
+  left: { x: 10, y: 0 },
+  right: { x: -10, y: 0 },
 };
 
 export default function SectionReveal({
@@ -40,6 +42,7 @@ export default function SectionReveal({
       variants={variants}
       transition={{ duration, delay, ease: 'easeOut' }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>

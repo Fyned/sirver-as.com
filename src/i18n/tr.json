@@ -33,7 +33,7 @@
     "badge": "Yüksek Kalorili Biyokütle Yakıtı",
     "titleLine1": "STANDARTLARI AŞAN",
     "titleLine2": "ODUN CİPSİ TEDARİĞİ",
-    "desc": "Enerji santralleri ve sanayi tesisleri için ISO 17225-4 standartlarında, düşük nem ve minimum kül oranına sahip <strong>G30/G50 Odun Cipsi</strong> üretiyoruz.",
+    "desc": "Enerji santralleri ve sanayi tesisleri için ISO 17225-4 standartlarında, düşük nem ve minimum kül oranına sahip G30/G50 Odun Cipsi üretiyoruz.",
     "ctaPrimary": "Ürünlerimizi İnceleyin",
     "ctaSecondary": "Lojistik Ağı & İletişim",
     "pipLabel": "Canlı Operasyon",
@@ -53,7 +53,7 @@
   },
   "calculator": {
     "title": "Maliyet Avantajını Hesapla",
-    "subtitle": "İşletmenizin enerji giderlerini Sirver A.Ş.'nin yerli kaynaklarıyla karşılaştırın. İster <strong>Odun Cipsi</strong> ister <strong>Tarımsal Biyokütle</strong> seçin, kazancınızı görün.",
+    "subtitle": "İşletmenizin enerji giderlerini Sirver A.Ş.'nin yerli kaynaklarıyla karşılaştırın. İster Odun Cipsi ister Tarımsal Biyokütle seçin, kazancınızı görün.",
     "step1": "1. Sirver Ürün Tercihiniz",
     "step2": "2. Mevcut Yakıtınız",
     "step3": "3. Yıllık Tüketim",
@@ -111,7 +111,7 @@
     },
     "story": {
       "title": "İnşaattan Enerjiye Dönüşüm",
-      "p1": "Firmamız, uzun yıllar boyunca Türkiye'nin dört bir yanında büyük ölçekli altyapı, üstyapı ve taahhüt projelerini başarıyla tamamlamıştır. Bu süreçte edindiğimiz <strong>\"zorlu saha koşullarında lojistik yönetim\"</strong> yetkinliği, bizi rakiplerimizden ayıran en büyük güçtür.",
+      "p1": "Firmamız, uzun yıllar boyunca Türkiye'nin dört bir yanında büyük ölçekli altyapı, üstyapı ve taahhüt projelerini başarıyla tamamlamıştır. Bu süreçte edindiğimiz \"zorlu saha koşullarında lojistik yönetim\" yetkinliği, bizi rakiplerimizden ayıran en büyük güçtür.",
       "p2": "Biyokütle enerjisi, sadece bir hammadde tedariği değil, aynı zamanda ciddi bir lojistik operasyondur. Biz, fabrikanızın ihtiyaç duyduğu binlerce ton ürünü, şantiye disipliniyle yöneterek tam zamanında (JIT) teslim ediyoruz."
     },
     "certs": {

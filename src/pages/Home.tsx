@@ -52,8 +52,8 @@ function VideoCard({ video, index }: { video: (typeof featuredVideos)[0]; index:
     <motion.div
       ref={ref}
       key={video.id}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
       className="group relative aspect-video rounded-xl overflow-hidden cursor-pointer border border-white/10 hover:border-sirver-primary/50 transition-colors"

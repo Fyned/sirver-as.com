@@ -28,8 +28,8 @@ export default function About() {
           <div className="text-center max-w-4xl mx-auto">
             <span className="text-sirver-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 block">{t('about.badge')}</span>
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               className="text-4xl md:text-6xl font-heading font-bold text-sirver-secondary mb-8"
             >
               {t('about.titlePart1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-sirver-primary to-green-400">{t('about.titlePart2')}</span>

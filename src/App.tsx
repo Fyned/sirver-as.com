@@ -22,29 +22,39 @@ function App() {
   const [appReady, setAppReady] = useState(false);
 
   useEffect(() => {
-    // Minimum 600ms loading screen göster
-    const minDelay = new Promise((r) => setTimeout(r, 600));
+    // Minimum 300ms loading screen göster (daha kısa = daha hızlı FCP)
+    const minDelay = new Promise((r) => setTimeout(r, 300));
 
-    // Fontlar hazır olana kadar bekle
-    const fontsReady = document.fonts?.ready ?? Promise.resolve();
+    // Fontlar hazır olana kadar bekle (max 1.5s timeout)
+    const fontsReady = Promise.race([
+      document.fonts?.ready ?? Promise.resolve(),
+      new Promise((r) => setTimeout(r, 1500)),
+    ]);
 
     // Home chunk'ı preload et (lazy import zaten cache'ler)
     const homeReady = import('./pages/Home').then(() => {});
 
-    // Hero görselini preload et
-    const heroReady = new Promise<void>((resolve) => {
-      const img = new Image();
-      img.onload = () => resolve();
-      img.onerror = () => resolve(); // hata olsa da devam et
-      import('./assets/images/home/stockyard-dark.jpg')
-        .then((mod) => { img.src = mod.default; })
-        .catch(() => resolve());
-    });
+    // Hero görselini preload et (max 2s timeout)
+    const heroReady = Promise.race([
+      new Promise<void>((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve();
+        img.onerror = () => resolve();
+        import('./assets/images/home/stockyard-dark.jpg')
+          .then((mod) => { img.src = mod.default; })
+          .catch(() => resolve());
+      }),
+      new Promise<void>((r) => setTimeout(r, 2000)),
+    ]);
 
     // Tüm kritik kaynaklar hazır olduğunda loading screen'i kapat
     Promise.all([minDelay, fontsReady, homeReady, heroReady]).then(() => {
       setAppReady(true);
     });
+
+    // Güvenlik: 3 saniyede hiçbir şey olmazsa zorla aç
+    const safetyTimeout = setTimeout(() => setAppReady(true), 3000);
+    return () => clearTimeout(safetyTimeout);
   }, []);
 
   return (

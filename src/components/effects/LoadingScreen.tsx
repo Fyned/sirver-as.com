@@ -16,8 +16,8 @@ export default function LoadingScreen({ isInitial, onComplete }: Props) {
       {...(isInitial
         ? {
             animate: { opacity: 1 },
-            exit: { opacity: 0, y: -20 },
-            transition: { duration: 0.4, ease: 'easeInOut' },
+            exit: { opacity: 0 },
+            transition: { duration: 0.3, ease: 'easeInOut' },
             onAnimationComplete: (def: { opacity?: number }) => {
               if (def.opacity === 0 && onComplete) onComplete();
             },
@@ -26,9 +26,9 @@ export default function LoadingScreen({ isInitial, onComplete }: Props) {
       className="fixed inset-0 z-[9999] bg-sirver-secondary flex items-center justify-center"
     >
       <motion.div
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
         className="flex flex-col items-center gap-6"
       >
         {/* Logo with pulsing ring */}
