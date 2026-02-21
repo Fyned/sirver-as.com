@@ -8,13 +8,13 @@ export default function Footer() {
   const prefix = lang === 'en' ? '/en' : '';
 
   return (
-    <footer className="bg-sirver-secondary text-white pt-20 pb-10 border-t border-white/5 font-sans relative z-20">
+    <footer className="bg-sirver-secondary text-white pt-12 md:pt-20 pb-8 md:pb-10 border-t border-white/5 font-sans relative z-20">
       <div className="container mx-auto px-4">
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mb-10 md:mb-16">
 
           {/* KOLON 1: Logo & Adres */}
-          <div className="space-y-6">
+          <div className="space-y-6 col-span-2 md:col-span-1">
             <div className="w-48">
               <img
                 src={logoFull}
@@ -51,25 +51,25 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-400 text-sm">
                <li className="flex items-center gap-2 hover:text-white transition-colors cursor-default group">
                  <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/>
-                 {t('footer.serviceWoodChip')}
+                 {t('footer.industrialWoodChips')}
                </li>
                <li className="flex items-center gap-2 hover:text-white transition-colors cursor-default group">
                  <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/>
-                 {t('footer.serviceBiomass')}
+                 {t('footer.biomassFuel')}
                </li>
                <li className="flex items-center gap-2 hover:text-white transition-colors cursor-default group">
                  <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/>
-                 {t('footer.serviceForestWaste')}
+                 {t('footer.forestIndustryWaste')}
                </li>
                <li className="flex items-center gap-2 hover:text-white transition-colors cursor-default group">
                  <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/>
-                 {t('footer.serviceLogistics')}
+                 {t('footer.logisticsSolutions')}
                </li>
             </ul>
           </div>
 
           {/* KOLON 4: İletişim */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <h4 className="font-heading text-lg font-bold mb-6 text-white border-b-2 border-sirver-primary pb-2 inline-block">{t('footer.contactUs')}</h4>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li className="flex items-center gap-3 bg-white/5 p-4 rounded-lg border border-white/5 hover:border-sirver-primary/50 transition-colors group">
@@ -102,10 +102,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Sirver A.Ş. {t('footer.allRights')}</p>
+        <div className="border-t border-white/10 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-3">
+          <p>© {new Date().getFullYear()} Sirver A.Ş. {t('footer.copyright')}</p>
           <div className="mt-2 md:mt-0 flex gap-4 items-center">
-            <span className="hover:text-white cursor-pointer">{t('footer.privacy')}</span>
+            <span className="hover:text-white cursor-pointer">{t('footer.privacyPolicy')}</span>
             <span className="hover:text-white cursor-pointer">{t('footer.kvkk')}</span>
             <span className="text-gray-600">|</span>
             <a href="https://dmckreatif.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">

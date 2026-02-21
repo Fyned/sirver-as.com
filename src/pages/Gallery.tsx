@@ -86,7 +86,7 @@ export default function Gallery() {
           </div>
 
           {/* Kategori filtresi */}
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
             {mediaCategories.map((cat) => (
               <button
                 key={cat}
@@ -200,23 +200,23 @@ export default function Gallery() {
               {/* Close button */}
               <button
                 onClick={() => setLightbox(null)}
-                className="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                className="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white transition-colors"
               >
-                <X size={24} />
+                <X size={22} />
               </button>
 
-              {/* Navigation */}
+              {/* Navigation — mobilde daha büyük dokunma alanları */}
               <button
                 onClick={(e) => { e.stopPropagation(); navigateLightbox(-1); }}
-                className="absolute left-4 md:left-8 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                className="absolute left-2 md:left-8 z-50 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white transition-colors"
               >
-                <ChevronLeft size={24} />
+                <ChevronLeft size={22} />
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); navigateLightbox(1); }}
-                className="absolute right-4 md:right-8 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                className="absolute right-2 md:right-8 z-50 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white transition-colors"
               >
-                <ChevronRight size={24} />
+                <ChevronRight size={22} />
               </button>
 
               {/* Content */}

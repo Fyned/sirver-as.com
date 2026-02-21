@@ -44,7 +44,7 @@ export default function Header() {
   return (
     <div className="fixed w-full z-50 font-sans transition-all duration-300">
 
-      <div className={`bg-sirver-secondary text-white transition-all duration-500 overflow-hidden ${scrolled || !isHome ? 'h-0' : 'h-10'} flex items-center`}>
+      <div className={`bg-sirver-secondary text-white transition-all duration-500 overflow-hidden ${scrolled || !isHome ? 'h-0' : 'h-10'} hidden md:flex items-center`}>
         <div className="container mx-auto px-4 flex justify-between text-xs font-medium tracking-wider text-gray-300">
           <div className="flex gap-6">
             <a href="mailto:info@sirver-as.com" className="flex items-center gap-2 hover:text-white transition-colors">
@@ -54,7 +54,7 @@ export default function Header() {
               <Phone size={14} className="text-sirver-accent" /> +90 530 923 50 33
             </a>
           </div>
-          <div className="hidden md:flex gap-4 items-center">
+          <div className="flex gap-4 items-center">
             <span>Konya / TÜRKİYE</span>
             <span className="text-sirver-primary">|</span>
             <span>ISO 9001:2015</span>
@@ -98,7 +98,7 @@ export default function Header() {
                   : 'bg-sirver-primary text-white hover:bg-green-800'
               }`}
             >
-              {t('nav.cta')} <ChevronRight size={16} />
+              {t('nav.getQuote')} <ChevronRight size={16} />
             </Link>
           </nav>
 
@@ -112,18 +112,33 @@ export default function Header() {
           </button>
         </div>
 
-        <div className={`fixed inset-0 bg-[#ECEFF1] z-40 flex flex-col justify-center items-center gap-8 transition-all duration-500 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+        <div className={`fixed inset-0 bg-[#ECEFF1] z-40 flex flex-col justify-center items-center gap-6 transition-all duration-500 px-6 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className="text-2xl font-heading font-bold text-sirver-secondary hover:text-sirver-primary transition-colors tracking-widest"
+              className="text-xl font-heading font-bold text-sirver-secondary hover:text-sirver-primary transition-colors tracking-widest py-1"
             >
               {link.name}
             </Link>
           ))}
-          <LanguageSwitcher className="mt-4" />
+
+          {/* Mobil menü CTA butonu */}
+          <Link
+            to={`${prefix}/iletisim`}
+            onClick={() => setIsOpen(false)}
+            className="mt-2 bg-sirver-primary text-white px-8 py-3.5 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg"
+          >
+            {t('nav.getQuote')} <ChevronRight size={16} />
+          </Link>
+
+          {/* Mobil menü telefon */}
+          <a href="tel:+905309235033" className="flex items-center gap-2 text-sirver-secondary font-bold text-sm">
+            <Phone size={16} className="text-sirver-primary" /> +90 530 923 50 33
+          </a>
+
+          <LanguageSwitcher className="mt-2" />
         </div>
       </header>
     </div>

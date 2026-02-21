@@ -44,12 +44,12 @@ export default function Products() {
            </motion.div>
         </section>
 
-        <section className="container mx-auto px-4 mb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <section className="container mx-auto px-4 mb-16 md:mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
 
             {/* GORSEL ALANI */}
             <ParallaxSection speed={0.15}>
-              <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
+              <div className="relative h-[300px] md:h-[500px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl group">
                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10" />
                  <img
                    src={imgWood}
@@ -58,8 +58,8 @@ export default function Products() {
                    loading="lazy"
                  />
 
-                 <div className="absolute bottom-8 left-8 z-20 bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-lg border-l-4 border-sirver-accent">
-                    <div className="text-3xl font-heading font-bold text-sirver-secondary">
+                 <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 z-20 bg-white/90 backdrop-blur-md p-4 md:p-6 rounded-xl shadow-lg border-l-4 border-sirver-accent">
+                    <div className="text-2xl md:text-3xl font-heading font-bold text-sirver-secondary">
                       ~<AnimatedCounter end={4.2} duration={2} decimals={1} /> kWh/kg
                     </div>
                     <div className="text-sm text-gray-500 font-bold uppercase">{t('products.calorificLabel')}</div>
@@ -89,7 +89,7 @@ export default function Products() {
 
                  <div className="flex gap-4">
                    <a href={`${prefix}/iletisim`} className="bg-sirver-secondary text-white px-8 py-4 rounded-lg font-bold hover:bg-sirver-primary transition-colors flex items-center gap-2 hover:-translate-y-1 transition-transform shadow-lg">
-                     <Zap size={20} /> {t('products.ctaButton')}
+                     <Zap size={20} /> {t('products.detailBtn')}
                    </a>
                  </div>
               </div>
@@ -125,23 +125,23 @@ export default function Products() {
                  <p className="text-gray-400">{t('products.specsSubtitle')}</p>
                </div>
              </SectionReveal>
-             <div className="overflow-x-auto">
-               <table className="w-full text-left border-collapse">
+             <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
+               <table className="w-full text-left border-collapse min-w-[500px]">
                  <thead>
-                   <tr className="border-b border-white/10 text-sm uppercase tracking-wider text-gray-400">
-                     <th className="py-4 px-6">{t('products.tableHeaders.parameter')}</th>
-                     <th className="py-4 px-6">{t('products.tableHeaders.unit')}</th>
-                     <th className="py-4 px-6 text-sirver-accent">{t('products.tableHeaders.sirverQuality')}</th>
-                     <th className="py-4 px-6">{t('products.tableHeaders.standard')}</th>
+                   <tr className="border-b border-white/10 text-[11px] md:text-sm uppercase tracking-wider text-gray-400">
+                     <th className="py-3 px-3 md:py-4 md:px-6">{t('products.specHeaders.parameter')}</th>
+                     <th className="py-3 px-3 md:py-4 md:px-6">{t('products.specHeaders.unit')}</th>
+                     <th className="py-3 px-3 md:py-4 md:px-6 text-sirver-accent">{t('products.specHeaders.sirverQuality')}</th>
+                     <th className="py-3 px-3 md:py-4 md:px-6">{t('products.specHeaders.standard')}</th>
                    </tr>
                  </thead>
-                 <tbody className="divide-y divide-white/5 text-gray-300">
+                 <tbody className="divide-y divide-white/5 text-gray-300 text-sm">
                    {(t('products.specRows') as any[]).map((row: any, i: number) => (
                      <tr key={i} className="hover:bg-white/5 transition-colors">
-                       <td className="py-4 px-6 font-bold text-white">{row.name}</td>
-                       <td className="py-4 px-6 font-mono text-sm opacity-70">{row.unit}</td>
-                       <td className="py-4 px-6 font-bold text-sirver-accent">{row.val1}</td>
-                       <td className="py-4 px-6 opacity-60">{row.val2}</td>
+                       <td className="py-3 px-3 md:py-4 md:px-6 font-bold text-white text-xs md:text-sm">{row.name}</td>
+                       <td className="py-3 px-3 md:py-4 md:px-6 font-mono text-xs md:text-sm opacity-70">{row.unit}</td>
+                       <td className="py-3 px-3 md:py-4 md:px-6 font-bold text-sirver-accent text-xs md:text-sm">{row.val1}</td>
+                       <td className="py-3 px-3 md:py-4 md:px-6 opacity-60 text-xs md:text-sm">{row.val2}</td>
                      </tr>
                    ))}
                  </tbody>

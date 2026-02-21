@@ -25,7 +25,7 @@ export default function Sustainability() {
 
         {/* HERO - Video Background */}
         <section className="container mx-auto px-4 mb-20">
-          <div className="relative rounded-3xl overflow-hidden p-12 md:p-24 text-center text-white shadow-2xl min-h-[400px] flex items-center justify-center">
+          <div className="relative rounded-2xl md:rounded-3xl overflow-hidden p-8 md:p-24 text-center text-white shadow-2xl min-h-[300px] md:min-h-[400px] flex items-center justify-center">
             <VideoBackground
               src="/media/videos/v23.mp4"
               posterSrc="/media/thumbs/v23-thumb.jpg"
@@ -87,9 +87,9 @@ export default function Sustainability() {
             </SectionReveal>
 
             <ParallaxSection speed={0.15}>
-              <div className="h-[500px] rounded-3xl overflow-hidden relative shadow-xl">
+              <div className="h-[320px] md:h-[500px] rounded-2xl md:rounded-3xl overflow-hidden relative shadow-xl">
                 <img src={imgNature} alt={t('sustainability.circularTitle')} className="h-full w-full object-cover" />
-                <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-lg">
+                <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 bg-white/90 backdrop-blur-md p-4 md:p-6 rounded-xl shadow-lg">
                   <div className="flex items-center gap-4">
                     <RefreshCcw className="text-sirver-primary" size={32} />
                     <div>
@@ -106,9 +106,9 @@ export default function Sustainability() {
         {/* Doğa Görselleri */}
         <section className="container mx-auto px-4 mb-12">
           <SectionReveal>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
               {['/media/images/img03.webp', '/media/images/img06.webp', '/media/images/img11.webp'].map((src, i) => (
-                <div key={i} className="aspect-video rounded-xl overflow-hidden group">
+                <div key={i} className={`aspect-video rounded-xl overflow-hidden group ${i === 2 ? 'col-span-2 md:col-span-1' : ''}`}>
                   <img src={src} alt={t('sustainability.badge')} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                 </div>
               ))}

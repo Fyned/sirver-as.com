@@ -47,37 +47,37 @@ export default function About() {
             posterSrc="/media/thumbs/v04-thumb.jpg"
             overlay="bg-sirver-secondary/85"
           />
-          <div className="container mx-auto px-4 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+          <div className="container mx-auto px-4 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center divide-x divide-white/10">
             <SectionReveal delay={0}>
               <div>
-                <div className="text-4xl md:text-5xl font-heading font-bold text-sirver-accent mb-2">
+                <div className="text-3xl md:text-5xl font-heading font-bold text-sirver-accent mb-1 md:mb-2">
                   <AnimatedCounter end={25} duration={2} suffix="+" />
                 </div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.experience')}</div>
+                <div className="text-[11px] md:text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.experience')}</div>
               </div>
             </SectionReveal>
             <SectionReveal delay={0.1}>
               <div>
-                <div className="text-4xl md:text-5xl font-heading font-bold text-sirver-primary mb-2">
+                <div className="text-3xl md:text-5xl font-heading font-bold text-sirver-primary mb-1 md:mb-2">
                   <AnimatedCounter end={1.2} duration={2} decimals={1} suffix="M" />
                 </div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.capacity')}</div>
+                <div className="text-[11px] md:text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.capacity')}</div>
               </div>
             </SectionReveal>
             <SectionReveal delay={0.2}>
               <div>
-                <div className="text-4xl md:text-5xl font-heading font-bold text-blue-400 mb-2">
+                <div className="text-3xl md:text-5xl font-heading font-bold text-blue-400 mb-1 md:mb-2">
                   <AnimatedCounter end={50} duration={2} suffix="+" />
                 </div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.fleet')}</div>
+                <div className="text-[11px] md:text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.fleet')}</div>
               </div>
             </SectionReveal>
             <SectionReveal delay={0.3}>
               <div>
-                <div className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">
+                <div className="text-3xl md:text-5xl font-heading font-bold text-white mb-1 md:mb-2">
                   %<AnimatedCounter end={100} duration={2} />
                 </div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.satisfaction')}</div>
+                <div className="text-[11px] md:text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.satisfaction')}</div>
               </div>
             </SectionReveal>
           </div>
@@ -109,7 +109,7 @@ export default function About() {
               </div>
             </SectionReveal>
 
-            <ParallaxSection speed={0.2} className="order-1 lg:order-2 relative h-[500px] group">
+            <ParallaxSection speed={0.2} className="order-1 lg:order-2 relative h-[300px] md:h-[500px] group">
               <div className="absolute inset-0 bg-gradient-to-br from-sirver-primary to-sirver-secondary rounded-3xl transform rotate-3 opacity-20 transition-transform group-hover:rotate-0"></div>
               <div className="absolute inset-0 bg-white rounded-3xl shadow-2xl overflow-hidden">
                 <img src={imgHQ} alt="Genel Müdürlük ve Tesis" className="h-full w-full object-cover" loading="lazy" />

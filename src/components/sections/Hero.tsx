@@ -135,7 +135,7 @@ export default function Hero() {
       <ParticleBackground count={8} className="z-[1] opacity-30" />
 
       {/* 2. CONTENT */}
-      <div className="container mx-auto px-4 relative z-10 text-center text-white flex flex-col items-center justify-center h-full pb-20">
+      <div className="container mx-auto px-4 relative z-10 text-center text-white flex flex-col items-center justify-center h-full pb-24 md:pb-20">
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -252,31 +252,31 @@ export default function Hero() {
       )}
 
       {/* 4. STATS BAR */}
-      <div className="absolute bottom-0 w-full bg-black/60 backdrop-blur-md border-t border-white/10 hidden md:block z-20">
-        <div className="container mx-auto px-4 py-6 grid grid-cols-3 gap-8 text-white divide-x divide-white/10">
-          <div className="flex items-center justify-center gap-4">
-            <TrendingUp className="text-sirver-accent" size={32} />
-            <div className="text-left">
-              <div className="text-2xl font-heading font-bold flex items-baseline gap-1">
-                <AnimatedCounter end={1.2} duration={2} decimals={1} /> <span>M Ton</span>
+      <div className="absolute bottom-0 w-full bg-black/60 backdrop-blur-md border-t border-white/10 z-20">
+        <div className="container mx-auto px-4 py-3 md:py-6 grid grid-cols-3 gap-2 md:gap-8 text-white divide-x divide-white/10">
+          <div className="flex items-center justify-center gap-2 md:gap-4">
+            <TrendingUp className="text-sirver-accent hidden md:block" size={32} />
+            <div className="text-center md:text-left">
+              <div className="text-lg md:text-2xl font-heading font-bold flex items-baseline justify-center md:justify-start gap-1">
+                <AnimatedCounter end={1.2} duration={2} decimals={1} /> <span className="text-xs md:text-base">M Ton</span>
               </div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider">{t('hero.statCapacity')}</div>
+              <div className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{t('hero.statCapacity')}</div>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-4">
-            <Leaf className="text-sirver-primary" size={32} />
-            <div className="text-left">
-              <div className="text-2xl font-heading font-bold flex items-baseline gap-1">
+          <div className="flex items-center justify-center gap-2 md:gap-4">
+            <Leaf className="text-sirver-primary hidden md:block" size={32} />
+            <div className="text-center md:text-left">
+              <div className="text-lg md:text-2xl font-heading font-bold flex items-baseline justify-center md:justify-start gap-1">
                 %<AnimatedCounter end={100} duration={2} />
               </div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider">{t('hero.statSustainable')}</div>
+              <div className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{t('hero.statSustainable')}</div>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-4">
-            <Truck className="text-blue-400" size={32} />
-            <div className="text-left">
-              <div className="text-2xl font-heading font-bold">7/24</div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider">{t('hero.statLogistics')}</div>
+          <div className="flex items-center justify-center gap-2 md:gap-4">
+            <Truck className="text-blue-400 hidden md:block" size={32} />
+            <div className="text-center md:text-left">
+              <div className="text-lg md:text-2xl font-heading font-bold">7/24</div>
+              <div className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{t('hero.statLogistics')}</div>
             </div>
           </div>
         </div>

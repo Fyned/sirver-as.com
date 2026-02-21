@@ -82,7 +82,7 @@ export default function Calculator() {
                 {t('calculator.subtitle')}
               </p>
 
-              <div className="space-y-8 bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
+              <div className="space-y-6 md:space-y-8 bg-white/5 p-5 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 backdrop-blur-sm">
 
                 {/* 1. Adım */}
                 <div>
@@ -165,7 +165,7 @@ export default function Calculator() {
               initial={{ scale: 0.95, opacity: 0.5 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-              className="bg-gradient-to-br from-white to-gray-200 text-sirver-secondary rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden border-4 border-white/10"
+              className="bg-gradient-to-br from-white to-gray-200 text-sirver-secondary rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden border-4 border-white/10"
             >
               {/* Arka Plan İkonu */}
               <div className="absolute -top-10 -right-10 opacity-5 rotate-12 text-sirver-secondary">
@@ -177,7 +177,7 @@ export default function Calculator() {
                   <RefreshCcw size={14} className="animate-spin-slow" /> {t('calculator.resultTitle')}
                 </h3>
 
-                <div className="text-5xl md:text-7xl font-heading font-bold text-sirver-primary mb-2 tracking-tight">
+                <div className="text-4xl md:text-7xl font-heading font-bold text-sirver-primary mb-2 tracking-tight">
                   {hasCalculated ? (
                     <>₺<AnimatedCounter end={savings} duration={1.5} /></>
                   ) : (

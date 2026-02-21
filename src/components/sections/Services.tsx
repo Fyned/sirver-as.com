@@ -66,7 +66,7 @@ export default function Services() {
         </SectionReveal>
 
         {/* BENTO GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(320px,auto)]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[minmax(240px,auto)] md:auto-rows-[minmax(320px,auto)]">
 
           {/* 1. KUTU: ORMAN (Geniş - Sol) */}
           <ServiceCard

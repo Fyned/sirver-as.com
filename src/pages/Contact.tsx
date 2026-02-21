@@ -161,7 +161,7 @@ export default function Contact() {
 
           {/* EN ALT: Harita */}
           <SectionReveal>
-            <div className="w-full h-[450px] bg-white p-2 rounded-3xl shadow-2xl overflow-hidden relative group">
+            <div className="w-full h-[300px] md:h-[450px] bg-white p-2 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden relative group">
                <div className="absolute inset-0 bg-sirver-secondary/10 pointer-events-none z-10 group-hover:bg-transparent transition-colors duration-500"></div>
                <iframe
                   src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3149.4877500500006!2d32.50155072776283!3d37.8941930366937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzfCsDUzJzM5LjEiTiAzMsKwMzAnMDUuNiJF!5e0!3m2!1str!2str!4v1701440000000!5m2!1str!2str"
