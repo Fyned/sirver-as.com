@@ -23,8 +23,7 @@ const ServiceCard = ({ title, desc, icon: Icon, link, className, children, index
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true }}
-    whileHover={{ y: -8 }}
-    className={`bg-white p-6 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all group flex flex-col justify-between overflow-hidden relative ${className}`}
+    className={`bg-white p-6 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all group flex flex-col justify-between overflow-hidden relative ${className}`}
   >
     <div className="z-10 relative h-full flex flex-col">
       <div className="flex justify-between items-start mb-4">

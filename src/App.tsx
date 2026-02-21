@@ -16,10 +16,10 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 
-/** Minimal inline loading fallback — framer-motion gerektirmez, CLS sıfır */
+/** Minimal inline loading fallback — Hero ile aynı boyut, CLS sıfır */
 function InlineLoader() {
   return (
-    <div className="flex items-center justify-center min-h-[60vh]">
+    <div className="flex items-center justify-center h-screen min-h-[700px] bg-sirver-secondary">
       <div className="w-10 h-10 border-3 border-gray-200 border-t-sirver-primary rounded-full animate-spin" />
     </div>
   );

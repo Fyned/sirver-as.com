@@ -138,15 +138,10 @@ export default function Hero() {
       {/* Particle overlay - mobilde kapalı, masaüstünde minimal */}
       {!isMobile && <ParticleBackground count={6} className="z-[1] opacity-30" />}
 
-      {/* 2. CONTENT */}
+      {/* 2. CONTENT — CSS animation ile, framer-motion CLS riski yok */}
       <div className="container mx-auto px-4 relative z-10 text-center text-white flex flex-col items-center justify-center h-full pb-24 md:pb-20">
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto"
-        >
+        <div className="max-w-4xl mx-auto animate-fade-in-up">
           <span
             className="inline-block py-2 px-4 rounded-full bg-sirver-primary/80 border border-sirver-primary/50 text-white text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm shadow-lg"
           >
@@ -165,14 +160,9 @@ export default function Hero() {
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 font-medium drop-shadow-md leading-relaxed">
             {t('hero.desc')}
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full"
-        >
+        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <a href={`${prefix}/urunler`} className="w-full sm:w-auto group bg-sirver-primary hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
             {t('hero.ctaPrimary')}
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -180,7 +170,7 @@ export default function Hero() {
           <a href={`${prefix}/iletisim`} className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-xl font-bold backdrop-blur-md transition-all flex items-center justify-center hover:-translate-y-1">
             {t('hero.ctaSecondary')}
           </a>
-        </motion.div>
+        </div>
       </div>
 
       {/* 3. FLOATING VIDEO PiP */}
@@ -244,7 +234,7 @@ export default function Hero() {
             <TrendingUp className="text-sirver-accent hidden md:block" size={32} />
             <div className="text-center md:text-left">
               <div className="text-lg md:text-2xl font-heading font-bold flex items-baseline justify-center md:justify-start gap-1">
-                <AnimatedCounter end={1.2} duration={2} decimals={1} /> <span className="text-xs md:text-base">M Ton</span>
+                <span className="inline-block min-w-[2.5ch] tabular-nums"><AnimatedCounter end={1.2} duration={2} decimals={1} /></span> <span className="text-xs md:text-base">M Ton</span>
               </div>
               <div className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{t('hero.statCapacity')}</div>
             </div>
@@ -253,7 +243,7 @@ export default function Hero() {
             <Leaf className="text-sirver-primary hidden md:block" size={32} />
             <div className="text-center md:text-left">
               <div className="text-lg md:text-2xl font-heading font-bold flex items-baseline justify-center md:justify-start gap-1">
-                %<AnimatedCounter end={100} duration={2} />
+                %<span className="inline-block min-w-[3ch] tabular-nums"><AnimatedCounter end={100} duration={2} /></span>
               </div>
               <div className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{t('hero.statSustainable')}</div>
             </div>
@@ -261,7 +251,7 @@ export default function Hero() {
           <div className="flex items-center justify-center gap-2 md:gap-4">
             <Truck className="text-blue-400 hidden md:block" size={32} />
             <div className="text-center md:text-left">
-              <div className="text-lg md:text-2xl font-heading font-bold">7/24</div>
+              <div className="text-lg md:text-2xl font-heading font-bold tabular-nums">7/24</div>
               <div className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{t('hero.statLogistics')}</div>
             </div>
           </div>

@@ -13,7 +13,7 @@
   </FilesMatch>
 
   # Statik varlıklar için uzun süreli cache (hash'li dosyalar)
-  <FilesMatch "\.(js|css|jpg|jpeg|png|gif|webp|svg|woff2|woff|ttf|eot|ico)$">
+  <FilesMatch "\.(js|css|jpg|jpeg|png|gif|webp|svg|woff2|woff|ttf|eot|ico|mp4|webm)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 </IfModule>

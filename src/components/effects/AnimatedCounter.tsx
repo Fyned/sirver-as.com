@@ -52,7 +52,7 @@ export default function AnimatedCounter({
     : Math.round(count).toLocaleString('tr-TR');
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={`inline-block tabular-nums ${className}`}>
       {prefix}{displayValue}{suffix}
     </span>
   );

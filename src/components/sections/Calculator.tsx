@@ -177,7 +177,7 @@ export default function Calculator() {
                   <RefreshCcw size={14} className="animate-spin-slow" /> {t('calculator.resultTitle')}
                 </h3>
 
-                <div className="text-4xl md:text-7xl font-heading font-bold text-sirver-primary mb-2 tracking-tight">
+                <div className="text-4xl md:text-7xl font-heading font-bold text-sirver-primary mb-2 tracking-tight tabular-nums">
                   {hasCalculated ? (
                     <>₺<AnimatedCounter end={savings} duration={1.5} /></>
                   ) : (

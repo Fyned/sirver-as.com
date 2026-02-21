@@ -80,22 +80,22 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-D52I6VOt.js"></script>
+    <script type="module" crossorigin src="/assets/index-uNmbB6qF.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-Cn8xt2Gj.js">
     <link rel="modulepreload" crossorigin href="/assets/motion-cq-IOset.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-CVw5nxiM.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-BqGt156_.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-CcY_KzAN.css">
   </head>
   <body>
-    <!-- Native loading indicator — React yüklenene kadar gösterilir -->
-    <div id="root">
-      <div class="initial-loader" id="native-loader"></div>
-    </div>
+    <!-- Native loading indicator — root dışında, CLS sıfır -->
+    <div class="initial-loader" id="native-loader"></div>
+    <div id="root"></div>
     <script>
       // React render edince native loader'ı fade-out ile kaldır
       var observer = new MutationObserver(function() {
+        var root = document.getElementById('root');
         var loader = document.getElementById('native-loader');
-        if (loader && document.getElementById('root').children.length > 1) {
+        if (loader && root && root.children.length > 0) {
           loader.style.transition = 'opacity 0.3s ease';
           loader.style.opacity = '0';
           setTimeout(function() { if (loader.parentNode) loader.remove(); }, 300);
