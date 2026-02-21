@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { Play, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getFeaturedVideos } from '../data/media';
+import { useTranslation } from '../i18n/LanguageContext';
 
 const featuredVideos = getFeaturedVideos(8);
 
@@ -82,11 +83,14 @@ function VideoCard({ video, index }: { video: (typeof featuredVideos)[0]; index:
 }
 
 export default function Home() {
+  const { lang, t } = useTranslation();
+  const prefix = lang === 'en' ? '/en' : '';
+
   return (
     <>
       <SEOHead
-        title="Endüstriyel Biyokütle ve Odun Cipsi Tedariği"
-        description="1.2 Milyon ton kapasite ile enerji sektörüne odun cipsi ve biyokütle tedariği sağlıyoruz. İnşaat kökenli lojistik güç."
+        title={t('seo.home.title')}
+        description={t('seo.home.description')}
         path="/"
       />
 
@@ -100,12 +104,12 @@ export default function Home() {
           <div className="container mx-auto px-4 relative z-10">
             <SectionReveal>
               <div className="text-center mb-12">
-                <span className="text-sirver-primary font-bold tracking-widest text-sm uppercase mb-3 block">Sahadan Görüntüler</span>
+                <span className="text-sirver-primary font-bold tracking-widest text-sm uppercase mb-3 block">{t('home.videoSection.badge')}</span>
                 <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-4">
-                  OPERASYONLARIMIZ
+                  {t('home.videoSection.title')}
                 </h2>
                 <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                  Orman sahasından enerji tesisine kadar tüm sürecimizi yakından görün.
+                  {t('home.videoSection.description')}
                 </p>
               </div>
             </SectionReveal>
@@ -118,10 +122,10 @@ export default function Home() {
 
             <div className="text-center mt-10">
               <Link
-                to="/galeri"
+                to={`${prefix}/galeri`}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-sirver-primary hover:bg-green-700 text-white rounded-xl font-bold transition-all hover:-translate-y-1 shadow-lg shadow-sirver-primary/20"
               >
-                Tüm Galeriyi Gör
+                {t('home.videoSection.cta')}
                 <ArrowRight size={18} />
               </Link>
             </div>

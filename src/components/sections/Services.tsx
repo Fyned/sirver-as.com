@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Factory, Truck, Flame, Wheat } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionReveal from '../effects/SectionReveal';
+import { useTranslation } from '../../i18n/LanguageContext';
 
 // GÖRSELLER IMPORT
 import imgChipsHover from '../../assets/images/home/g50-chips-hover.jpg';
@@ -46,6 +47,9 @@ const ServiceCard = ({ title, desc, icon: Icon, link, className, children, index
 );
 
 export default function Services() {
+  const { t, lang } = useTranslation();
+  const prefix = lang === 'en' ? '/en' : '';
+
   return (
     <section className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -53,10 +57,10 @@ export default function Services() {
         <SectionReveal>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-sirver-secondary mb-4">
-              FAALİYET ALANLARIMIZ
+              {t('services.title')}
             </h2>
             <p className="text-gray-600 text-lg">
-              Türkiye'nin biyokütle potansiyelini enerjiye dönüştürüyoruz.
+              {t('services.subtitle')}
             </p>
           </div>
         </SectionReveal>
@@ -66,10 +70,10 @@ export default function Services() {
 
           {/* 1. KUTU: ORMAN (Geniş - Sol) */}
           <ServiceCard
-            title="Endüstriyel Odun Cipsi"
-            desc="G30/G50 standartlarında, kabuksuz ve düşük nemli ormansal yakıt."
+            title={t('services.cards.woodChip.title')}
+            desc={t('services.cards.woodChip.desc')}
             icon={Factory}
-            link="/hizmetler/odun-cipsi"
+            link={`${prefix}/hizmetler/odun-cipsi`}
             className="md:col-span-2 bg-sirver-primary hover:shadow-glow"
             index={0}
           >
@@ -81,10 +85,10 @@ export default function Services() {
 
           {/* 2. KUTU: TARIM (Dikey - Sağ) */}
           <ServiceCard
-            title="Mısır Sapı Balyası"
-            desc="Enerji ve hayvancılık için yüksek lifli, ekonomik büyük kare balyalar."
+            title={t('services.cards.cornStalk.title')}
+            desc={t('services.cards.cornStalk.desc')}
             icon={Wheat}
-            link="/hizmetler/misir-sapi"
+            link={`${prefix}/hizmetler/misir-sapi`}
             className="md:row-span-2 bg-yellow-600 hover:shadow-glow-accent"
             index={1}
           >
@@ -96,10 +100,10 @@ export default function Services() {
 
           {/* 3. KUTU: BİYOKÜTLE (Kare - Sol Alt) */}
           <ServiceCard
-            title="Biyokütle Yakıtı"
-            desc="Sanayi kazanları için özel karışımlı, yüksek kalorili reçete."
+            title={t('services.cards.biomass.title')}
+            desc={t('services.cards.biomass.desc')}
             icon={Flame}
-            link="/hizmetler/biyokutle-yakiti"
+            link={`${prefix}/hizmetler/biyokutle-yakiti`}
             className="bg-orange-600 hover:shadow-glow-accent"
             index={2}
           >
@@ -111,10 +115,10 @@ export default function Services() {
 
           {/* 4. KUTU: LOJİSTİK (Kare - Orta Alt) */}
           <ServiceCard
-            title="Güçlü Lojistik"
-            desc="Walking Floor tır filosu ile Türkiye geneli JIT teslimat."
+            title={t('services.cards.logistics.title')}
+            desc={t('services.cards.logistics.desc')}
             icon={Truck}
-            link="/hizmetler/lojistik"
+            link={`${prefix}/hizmetler/lojistik`}
             className="bg-blue-900 hover:shadow-glow"
             index={3}
           >

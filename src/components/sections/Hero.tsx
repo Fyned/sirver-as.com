@@ -5,6 +5,7 @@ import AnimatedCounter from '../effects/AnimatedCounter';
 import ParticleBackground from '../effects/ParticleBackground';
 import useIsMobile from '../../hooks/useIsMobile';
 import { getHeroVideos } from '../../data/media';
+import { useTranslation } from '../../i18n/LanguageContext';
 
 // Sadece ilk fotoğrafı eager import et, geri kalanlar lazy
 import imgStockyard from '../../assets/images/home/stockyard-dark.jpg';
@@ -20,6 +21,8 @@ const lazyImages = [
 const heroVideos = getHeroVideos();
 
 export default function Hero() {
+  const { lang, t } = useTranslation();
+  const prefix = lang === 'en' ? '/en' : '';
   const [currentImage, setCurrentImage] = useState(0);
   const [loadedImages, setLoadedImages] = useState<string[]>([imgStockyard]);
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -146,7 +149,7 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-block py-2 px-4 rounded-full bg-sirver-primary/80 border border-sirver-primary/50 text-white text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm shadow-lg"
           >
-            Yüksek Kalorili Biyokütle Yakıtı
+            {t('hero.badge')}
           </motion.span>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight drop-shadow-2xl tracking-tight">
@@ -156,7 +159,7 @@ export default function Hero() {
               transition={{ delay: 0.3, duration: 0.7 }}
               className="block text-white mb-2"
             >
-              STANDARTLARI AŞAN
+              {t('hero.titleLine1')}
             </motion.span>
             <motion.span
               initial={{ opacity: 0, x: 30 }}
@@ -164,7 +167,7 @@ export default function Hero() {
               transition={{ delay: 0.5, duration: 0.7 }}
               className="text-transparent bg-clip-text bg-gradient-to-r from-sirver-primary via-green-400 to-sirver-accent"
             >
-              ODUN CİPSİ TEDARİĞİ
+              {t('hero.titleLine2')}
             </motion.span>
           </h1>
 
@@ -174,8 +177,7 @@ export default function Hero() {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 font-medium drop-shadow-md leading-relaxed"
           >
-            Enerji santralleri ve sanayi tesisleri için ISO 17225-4 standartlarında,
-            düşük nem ve minimum kül oranına sahip <strong>G30/G50 Odun Cipsi</strong> üretiyoruz.
+            {t('hero.desc')}
           </motion.p>
         </motion.div>
 
@@ -185,12 +187,12 @@ export default function Hero() {
           transition={{ delay: 0.9, duration: 0.8 }}
           className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full"
         >
-          <a href="/urunler" className="w-full sm:w-auto group bg-sirver-primary hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
-            Ürünlerimizi İnceleyin
+          <a href={`${prefix}/urunler`} className="w-full sm:w-auto group bg-sirver-primary hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
+            {t('hero.ctaPrimary')}
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href="/iletisim" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-xl font-bold backdrop-blur-md transition-all flex items-center justify-center hover:-translate-y-1">
-            Lojistik Ağı & İletişim
+          <a href={`${prefix}/iletisim`} className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-xl font-bold backdrop-blur-md transition-all flex items-center justify-center hover:-translate-y-1">
+            {t('hero.ctaSecondary')}
           </a>
         </motion.div>
       </div>
@@ -226,7 +228,7 @@ export default function Hero() {
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 px-3 py-1.5 bg-gradient-to-t from-black/80 to-transparent">
-              <span className="text-[10px] text-white/80 font-bold uppercase tracking-wider">Canlı Operasyon</span>
+              <span className="text-[10px] text-white/80 font-bold uppercase tracking-wider">{t('hero.pipLabel')}</span>
             </div>
 
             <div className="absolute top-2 right-2 flex items-center gap-1">
@@ -258,7 +260,7 @@ export default function Hero() {
               <div className="text-2xl font-heading font-bold flex items-baseline gap-1">
                 <AnimatedCounter end={1.2} duration={2} decimals={1} /> <span>M Ton</span>
               </div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider">Yıllık Kapasite</div>
+              <div className="text-xs text-gray-400 uppercase tracking-wider">{t('hero.statCapacity')}</div>
             </div>
           </div>
           <div className="flex items-center justify-center gap-4">
@@ -267,14 +269,14 @@ export default function Hero() {
               <div className="text-2xl font-heading font-bold flex items-baseline gap-1">
                 %<AnimatedCounter end={100} duration={2} />
               </div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider">Yerli & Sürdürülebilir</div>
+              <div className="text-xs text-gray-400 uppercase tracking-wider">{t('hero.statSustainable')}</div>
             </div>
           </div>
           <div className="flex items-center justify-center gap-4">
             <Truck className="text-blue-400" size={32} />
             <div className="text-left">
               <div className="text-2xl font-heading font-bold">7/24</div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider">Kesintisiz Lojistik</div>
+              <div className="text-xs text-gray-400 uppercase tracking-wider">{t('hero.statLogistics')}</div>
             </div>
           </div>
         </div>

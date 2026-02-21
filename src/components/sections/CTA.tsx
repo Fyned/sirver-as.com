@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Leaf, Flame, TreePine } from 'lucide-react';
 import VideoBackground from '../media/VideoBackground';
 import SectionReveal from '../effects/SectionReveal';
+import { useTranslation } from '../../i18n/LanguageContext';
 
 export default function CTA() {
+  const { t, lang } = useTranslation();
+  const prefix = lang === 'en' ? '/en' : '';
+
   return (
     <section className="py-20 relative overflow-hidden border-t border-white/5">
       {/* Video Background */}
@@ -27,27 +31,27 @@ export default function CTA() {
 
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
-                PROJENİZ İÇİN EN UYGUN ÇÖZÜMÜ SUNALIM
+                {t('cta.title')}
               </h2>
               <p className="text-gray-400 text-lg">
-                Yıllık yakıt ihtiyacınızı ve lojistik taleplerinizi uzman ekibimizle planlayın, işletmenize özel fiyat teklifimizi alın.
+                {t('cta.desc')}
               </p>
             </div>
 
             <div>
               <Link
-                to="/iletisim"
+                to={`${prefix}/iletisim`}
                 className="group relative bg-sirver-primary hover:bg-green-700 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-green-900/50 flex items-center gap-3 hover:-translate-y-1 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-3">
-                  TEKLİF AL
+                  {t('cta.button')}
                   <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
                 </span>
                 {/* Animated gradient border */}
                 <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity gradient-border" />
               </Link>
               <p className="text-xs text-gray-500 mt-3 text-center">
-                *24 saat içinde dönüş garantisi
+                {t('cta.guarantee')}
               </p>
             </div>
 

@@ -2,16 +2,22 @@ import { Mail, Phone, MapPin, ExternalLink, Send } from 'lucide-react';
 import SEOHead from '../components/seo/SEOHead';
 import SectionReveal from '../components/effects/SectionReveal';
 import VideoBackground from '../components/media/VideoBackground';
+import { useTranslation } from '../i18n/LanguageContext';
 // GÖRSEL IMPORT
 import mapBg from '../assets/images/contact/map-bg.jpg';
 
 export default function Contact() {
+  const { lang, t } = useTranslation();
+  const prefix = lang === 'en' ? '/en' : '';
+
+  const subjects = t('contact.subjects') as string[];
+
   return (
     <>
       <SEOHead
-        title="İletişim"
-        description="Konya merkezli ofisimiz ve Türkiye geneli lojistik ağımızla iletişime geçin. Odun cipsi tedariği için teklif alın."
-        path="/iletisim"
+        title={t('seo.contact.title')}
+        description={t('seo.contact.description')}
+        path={`${prefix}/iletisim`}
       />
 
       <main className="pt-32 pb-24 bg-gray-50 min-h-screen relative">
@@ -26,7 +32,7 @@ export default function Contact() {
           {/* Fallback image for mobile */}
           <img
             src={mapBg}
-            alt="Global Lojistik Haritası"
+            alt={t('contact.mapTitle')}
             className="absolute inset-0 w-full h-full object-cover opacity-10 z-[1]"
           />
           <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-50 to-transparent z-[2]"></div>
@@ -38,14 +44,14 @@ export default function Contact() {
           <SectionReveal>
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-sirver-primary font-bold tracking-widest text-xs uppercase mb-2 block bg-white/10 backdrop-blur-sm py-1 px-3 rounded-full w-fit mx-auto border border-white/10">
-                7/24 Ulaşılabilir
+                {t('contact.badge')}
               </span>
               <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 drop-shadow-md">
-                BİZE ULAŞIN
+                {t('contact.heroTitle')}
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed">
-                Enerji ve hammadde tedariği süreçleriniz için uzman ekibimizle görüşün.
-                <br/>Size en uygun lojistik ve yakıt çözümünü sunmak için buradayız.
+                {t('contact.heroDesc')}
+                <br/>{t('contact.heroDesc2')}
               </p>
             </div>
           </SectionReveal>
@@ -56,7 +62,7 @@ export default function Contact() {
             <SectionReveal direction="left">
               <div className="bg-white p-8 rounded-2xl shadow-xl shadow-gray-200/50 border-t-4 border-sirver-primary h-full">
                 <h3 className="text-2xl font-bold text-sirver-secondary mb-8 flex items-center gap-2">
-                  <Phone className="text-sirver-primary" size={24} /> İletişim Bilgileri
+                  <Phone className="text-sirver-primary" size={24} /> {t('contact.contactInfo')}
                 </h3>
 
                 <div className="space-y-8">
@@ -66,14 +72,14 @@ export default function Contact() {
                       <MapPin size={24} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">Merkez Ofis</h4>
+                      <h4 className="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">{t('contact.headOffice')}</h4>
                       <p className="text-gray-600 leading-relaxed text-sm">
                         Esmira Office Center No:1/49<br/>
                         Musalla Bağları, Gürsesler Sk.<br/>
                         42060 Selçuklu, Konya
                       </p>
                       <a href="https://maps.google.com/?q=37.8941930366937,32.50155072776283" target="_blank" rel="noreferrer" className="text-sirver-primary text-xs font-bold mt-3 inline-flex items-center gap-1 hover:underline bg-green-50 px-2 py-1 rounded">
-                        Yol Tarifi Al <ExternalLink size={12}/>
+                        {t('contact.getDirections')} <ExternalLink size={12}/>
                       </a>
                     </div>
                   </div>
@@ -84,12 +90,12 @@ export default function Contact() {
                       <Phone size={24} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">Telefon / WhatsApp</h4>
+                      <h4 className="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">{t('contact.phoneWhatsApp')}</h4>
                       <p className="text-gray-600">
                         <a href="tel:+905309235033" className="hover:text-sirver-primary transition-colors text-xl font-bold text-sirver-secondary block">+90 530 923 50 33</a>
                       </p>
                       <p className="text-xs text-green-600 mt-1 font-medium flex items-center gap-1">
-                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Şimdi Açık
+                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> {t('contact.openNow')}
                       </p>
                     </div>
                   </div>
@@ -100,11 +106,11 @@ export default function Contact() {
                       <Mail size={24} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">E-Posta</h4>
+                      <h4 className="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">{t('contact.email')}</h4>
                       <a href="mailto:info@sirver-as.com" className="text-gray-600 font-medium hover:text-sirver-primary transition-colors block">
                         info@sirver-as.com
                       </a>
-                      <p className="text-xs text-gray-400 mt-1">24 saat içinde yanıtlanır</p>
+                      <p className="text-xs text-gray-400 mt-1">{t('contact.emailReply')}</p>
                     </div>
                   </div>
                 </div>
@@ -115,37 +121,36 @@ export default function Contact() {
             <SectionReveal direction="right" className="lg:col-span-2">
               <div className="bg-white p-8 rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 h-full">
                 <h3 className="text-2xl font-bold text-sirver-secondary mb-6 flex items-center gap-2">
-                  <Send className="text-sirver-accent" /> Bize Yazın
+                  <Send className="text-sirver-accent" /> {t('contact.writeUs')}
                 </h3>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase">Adınız Soyadınız</label>
-                    <input type="text" className="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-sirver-primary focus:ring-2 focus:ring-green-100 outline-none transition-all" placeholder="Örn: Ahmet Yılmaz" />
+                    <label className="text-xs font-bold text-gray-500 uppercase">{t('contact.fullName')}</label>
+                    <input type="text" className="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-sirver-primary focus:ring-2 focus:ring-green-100 outline-none transition-all" placeholder={t('contact.fullNamePlaceholder') as string} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase">Firma Adı</label>
-                    <input type="text" className="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-sirver-primary outline-none transition-all" placeholder="Firma Ünvanı" />
+                    <label className="text-xs font-bold text-gray-500 uppercase">{t('contact.companyName')}</label>
+                    <input type="text" className="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-sirver-primary outline-none transition-all" placeholder={t('contact.companyPlaceholder') as string} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase">Telefon</label>
-                    <input type="tel" className="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-sirver-primary outline-none transition-all" placeholder="05XX XXX XX XX" />
+                    <label className="text-xs font-bold text-gray-500 uppercase">{t('contact.phone')}</label>
+                    <input type="tel" className="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-sirver-primary outline-none transition-all" placeholder={t('contact.phonePlaceholder') as string} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase">Konu</label>
+                    <label className="text-xs font-bold text-gray-500 uppercase">{t('contact.subject')}</label>
                     <select className="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-sirver-primary outline-none transition-all text-gray-600">
-                      <option>Odun Cipsi Tedariği</option>
-                      <option>Mısır Sapı Balyası</option>
-                      <option>Lojistik Hizmeti</option>
-                      <option>Diğer</option>
+                      {Array.isArray(subjects) && subjects.map((subj, i) => (
+                        <option key={i}>{subj}</option>
+                      ))}
                     </select>
                   </div>
                   <div className="md:col-span-2 space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase">Mesajınız</label>
-                    <textarea rows={4} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-sirver-primary outline-none transition-all resize-none" placeholder="Talebinizi detaylandırın..."></textarea>
+                    <label className="text-xs font-bold text-gray-500 uppercase">{t('contact.message')}</label>
+                    <textarea rows={4} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-sirver-primary outline-none transition-all resize-none" placeholder={t('contact.messagePlaceholder') as string}></textarea>
                   </div>
                   <div className="md:col-span-2">
                     <button type="button" className="bg-sirver-secondary hover:bg-sirver-primary text-white py-4 px-8 rounded-lg font-bold w-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2 group">
-                      MESAJI GÖNDER <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                      {t('contact.sendButton')} <Send size={18} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </form>
@@ -166,7 +171,7 @@ export default function Contact() {
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Esmira Office Center Konumu"
+                  title={t('contact.mapTitle') as string}
                   className="grayscale hover:grayscale-0 transition-all duration-1000 scale-100 hover:scale-105"
                 ></iframe>
             </div>

@@ -4,16 +4,20 @@ import { Play, Image as ImageIcon, Film, X, ChevronLeft, ChevronRight } from 'lu
 import SEOHead from '../components/seo/SEOHead';
 import SectionReveal from '../components/effects/SectionReveal';
 import { allMedia as mediaItems, mediaCategories, type MediaItem } from '../data/media';
+import { useTranslation } from '../i18n/LanguageContext';
 
 export default function Gallery() {
-  const [activeCategory, setActiveCategory] = useState('Tümü');
+  const { lang, t } = useTranslation();
+  const prefix = lang === 'en' ? '/en' : '';
+
+  const [activeCategory, setActiveCategory] = useState('all');
   const [visibleCount, setVisibleCount] = useState(16);
   const [lightbox, setLightbox] = useState<{ item: MediaItem; index: number } | null>(null);
   const [activeTab, setActiveTab] = useState<'all' | 'video' | 'image'>('all');
 
   // Filter items
   const filteredItems = mediaItems.filter((item) => {
-    const categoryMatch = activeCategory === 'Tümü' || item.category === activeCategory;
+    const categoryMatch = activeCategory === 'all' || item.category === activeCategory;
     const typeMatch = activeTab === 'all' || item.type === activeTab;
     return categoryMatch && typeMatch;
   });
@@ -36,9 +40,9 @@ export default function Gallery() {
   return (
     <>
       <SEOHead
-        title="Galeri"
-        description="Sirver A.Ş. saha operasyonları, tesis görüntüleri ve lojistik faaliyetlerinin video ve fotoğraf galerisi."
-        path="/galeri"
+        title={t('seo.gallery.title')}
+        description={t('seo.gallery.description')}
+        path={`${prefix}/galeri`}
       />
 
       <main className="pt-32 pb-0">
@@ -46,12 +50,12 @@ export default function Gallery() {
         <section className="container mx-auto px-4 mb-12">
           <SectionReveal>
             <div className="text-center max-w-4xl mx-auto">
-              <span className="text-sirver-accent font-bold tracking-widest text-sm uppercase mb-4 block">Medya Arşivi</span>
+              <span className="text-sirver-accent font-bold tracking-widest text-sm uppercase mb-4 block">{t('gallery.badge')}</span>
               <h1 className="text-4xl md:text-6xl font-heading font-bold text-sirver-secondary mb-6">
-                SAHADAN <span className="text-sirver-primary">GÖRÜNTÜLER</span>
+                {t('gallery.titleStart')}<span className="text-sirver-primary">{t('gallery.titleHighlight')}</span>
               </h1>
               <p className="text-xl text-gray-600">
-                Orman sahasından enerji tesisine kadar tüm operasyonlarımızı yakından görün.
+                {t('gallery.subtitle')}
               </p>
             </div>
           </SectionReveal>
@@ -62,9 +66,9 @@ export default function Gallery() {
           {/* Tip filtresi */}
           <div className="flex justify-center gap-3 mb-6">
             {[
-              { key: 'all' as const, label: 'Tümü', icon: null },
-              { key: 'video' as const, label: 'Videolar', icon: Film },
-              { key: 'image' as const, label: 'Fotoğraflar', icon: ImageIcon },
+              { key: 'all' as const, label: t('gallery.all'), icon: null },
+              { key: 'video' as const, label: t('gallery.videos'), icon: Film },
+              { key: 'image' as const, label: t('gallery.photos'), icon: ImageIcon },
             ].map(({ key, label, icon: Icon }) => (
               <button
                 key={key}
@@ -93,13 +97,15 @@ export default function Gallery() {
                     : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                 }`}
               >
-                {cat}
+                {t(`media.categories.${cat}`)}
               </button>
             ))}
           </div>
 
           <div className="text-center mt-4">
-            <span className="text-sm text-gray-400">{filteredItems.length} öğe bulundu</span>
+            <span className="text-sm text-gray-400">
+              {(t('gallery.itemsFound') as string).replace('{count}', String(filteredItems.length))}
+            </span>
           </div>
         </section>
 
@@ -154,14 +160,14 @@ export default function Gallery() {
                   {/* Bottom info */}
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
                     <p className="text-white text-xs truncate">{item.alt}</p>
-                    <span className="text-white/60 text-[10px] uppercase tracking-wider">{item.category}</span>
+                    <span className="text-white/60 text-[10px] uppercase tracking-wider">{t(`media.categories.${item.category}`)}</span>
                   </div>
 
                   {/* Type badge */}
                   <div className={`absolute top-2 right-2 px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
                     item.type === 'video' ? 'bg-red-500 text-white' : 'bg-white/80 text-gray-700'
                   }`}>
-                    {item.type === 'video' ? 'Video' : 'Foto'}
+                    {item.type === 'video' ? t('gallery.video') : t('gallery.photo')}
                   </div>
                 </motion.div>
               ))}
@@ -175,7 +181,7 @@ export default function Gallery() {
                 onClick={() => setVisibleCount((prev) => prev + 12)}
                 className="px-8 py-4 bg-sirver-secondary hover:bg-sirver-primary text-white rounded-xl font-bold transition-all hover:-translate-y-1 shadow-lg"
               >
-                Daha Fazla Yükle ({filteredItems.length - visibleCount} kaldı)
+                {t('gallery.loadMore')} ({(t('gallery.remaining') as string).replace('{count}', String(filteredItems.length - visibleCount))})
               </button>
             </div>
           )}

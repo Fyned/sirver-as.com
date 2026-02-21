@@ -2,12 +2,17 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, ChevronRight } from 'lucide-react';
 import logoFull from '../../assets/icons/logo-full.svg';
+import { useTranslation } from '../../i18n/LanguageContext';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const { lang, t } = useTranslation();
+
+  const isHome = location.pathname === '/' || location.pathname === '/en';
+  const prefix = lang === 'en' ? '/en' : '';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -28,12 +33,12 @@ export default function Header() {
     : 'filter-none';
 
   const navLinks = [
-    { name: 'Kurumsal', path: '/kurumsal' },
-    { name: 'Faaliyet Alanları', path: '/hizmetler' },
-    { name: 'Ürünler', path: '/urunler' },
-    { name: 'Sürdürülebilirlik', path: '/surdurulebilirlik' },
-    { name: 'Galeri', path: '/galeri' },
-    { name: 'İletişim', path: '/iletisim' },
+    { name: t('nav.corporate'), path: `${prefix}/kurumsal` },
+    { name: t('nav.services'), path: `${prefix}/hizmetler` },
+    { name: t('nav.products'), path: `${prefix}/urunler` },
+    { name: t('nav.sustainability'), path: `${prefix}/surdurulebilirlik` },
+    { name: t('nav.gallery'), path: `${prefix}/galeri` },
+    { name: t('nav.contact'), path: `${prefix}/iletisim` },
   ];
 
   return (
@@ -49,10 +54,12 @@ export default function Header() {
               <Phone size={14} className="text-sirver-accent" /> +90 530 923 50 33
             </a>
           </div>
-          <div className="hidden md:flex gap-4">
+          <div className="hidden md:flex gap-4 items-center">
             <span>Konya / TÜRKİYE</span>
             <span className="text-sirver-primary">|</span>
             <span>ISO 9001:2015</span>
+            <span className="text-sirver-primary">|</span>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
@@ -60,7 +67,7 @@ export default function Header() {
       <header className={`transition-all duration-500 border-b ${headerClass}`}>
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
 
-          <Link to="/" className="relative z-50">
+          <Link to={prefix || '/'} className="relative z-50">
              <img
                src={logoFull}
                alt="Sirver A.Ş."
@@ -71,7 +78,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
-                key={link.name}
+                key={link.path}
                 to={link.path}
                 className={`text-sm font-bold uppercase tracking-wide transition-all duration-300 relative group ${textColor}`}
               >
@@ -80,15 +87,18 @@ export default function Header() {
               </Link>
             ))}
 
+            {/* Language Switcher (visible when top bar is hidden) */}
+            <LanguageSwitcher className={`${scrolled || !isHome ? 'flex' : 'hidden'}`} />
+
             <Link
-              to="/iletisim"
+              to={`${prefix}/iletisim`}
               className={`flex items-center gap-2 px-6 py-2.5 rounded shadow-lg font-bold text-sm transition-all transform hover:-translate-y-0.5 ${
                 isHome && !scrolled
                   ? 'bg-sirver-accent text-white hover:bg-orange-600'
                   : 'bg-sirver-primary text-white hover:bg-green-800'
               }`}
             >
-              TEKLİF AL <ChevronRight size={16} />
+              {t('nav.cta')} <ChevronRight size={16} />
             </Link>
           </nav>
 
@@ -105,7 +115,7 @@ export default function Header() {
         <div className={`fixed inset-0 bg-[#ECEFF1] z-40 flex flex-col justify-center items-center gap-8 transition-all duration-500 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
           {navLinks.map((link) => (
             <Link
-              key={link.name}
+              key={link.path}
               to={link.path}
               onClick={() => setIsOpen(false)}
               className="text-2xl font-heading font-bold text-sirver-secondary hover:text-sirver-primary transition-colors tracking-widest"
@@ -113,6 +123,7 @@ export default function Header() {
               {link.name}
             </Link>
           ))}
+          <LanguageSwitcher className="mt-4" />
         </div>
       </header>
     </div>

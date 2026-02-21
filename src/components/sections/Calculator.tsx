@@ -4,8 +4,11 @@ import { Calculator as CalcIcon, Banknote, Leaf, ArrowRight, RefreshCcw, Flame, 
 import ParticleBackground from '../effects/ParticleBackground';
 import AnimatedCounter from '../effects/AnimatedCounter';
 import SectionReveal from '../effects/SectionReveal';
+import { useTranslation } from '../../i18n/LanguageContext';
 
 export default function Calculator() {
+  const { t, lang } = useTranslation();
+  const prefix = lang === 'en' ? '/en' : '';
   const [fuelType, setFuelType] = useState('komur');
   const [targetProduct, setTargetProduct] = useState('odun-cipsi');
   const [amount, setAmount] = useState(1000);
@@ -15,7 +18,7 @@ export default function Calculator() {
 
   const sirverProducts: any = {
     'odun-cipsi': {
-      name: 'Endüstriyel Odun Cipsi',
+      name: t('calculator.products.odun-cipsi'),
       priceIndex: 1.0,
       energyFactor: 1.0,
       icon: Flame,
@@ -23,7 +26,7 @@ export default function Calculator() {
       bg: 'bg-sirver-primary'
     },
     'misir-sapi': {
-      name: 'Mısır Sapı Balyası',
+      name: t('calculator.products.misir-sapi'),
       priceIndex: 0.75,
       energyFactor: 0.85,
       icon: Wheat,
@@ -33,9 +36,9 @@ export default function Calculator() {
   };
 
   const marketData: any = {
-    komur: { name: 'İthal Kömür', unit: 'Ton', priceMultiplier: 2.1, co2Factor: 2.4 },
-    dogalgaz: { name: 'Doğalgaz', unit: 'm³', priceMultiplier: 2.8, co2Factor: 1.9 },
-    fueloil: { name: 'Fuel-Oil', unit: 'Litre', priceMultiplier: 3.5, co2Factor: 3.0 },
+    komur: { name: t('calculator.fuels.komur'), unit: 'Ton', priceMultiplier: 2.1, co2Factor: 2.4 },
+    dogalgaz: { name: t('calculator.fuels.dogalgaz'), unit: 'm\u00B3', priceMultiplier: 2.8, co2Factor: 1.9 },
+    fueloil: { name: t('calculator.fuels.fueloil'), unit: 'Litre', priceMultiplier: 3.5, co2Factor: 3.0 },
   };
 
   useEffect(() => {
@@ -72,18 +75,18 @@ export default function Calculator() {
                   <CalcIcon size={32} />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-heading font-bold">
-                  Maliyet Avantajını Hesapla
+                  {t('calculator.title')}
                 </h2>
               </div>
               <p className="text-gray-400 mb-10 text-lg">
-                İşletmenizin enerji giderlerini Sirver A.Ş.'nin yerli kaynaklarıyla karşılaştırın. İster <strong>Odun Cipsi</strong> ister <strong>Tarımsal Biyokütle</strong> seçin, kazancınızı görün.
+                {t('calculator.subtitle')}
               </p>
 
               <div className="space-y-8 bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
 
                 {/* 1. Adım */}
                 <div>
-                  <label className="block text-xs font-bold text-gray-400 mb-3 uppercase tracking-widest">1. Sirver Ürün Tercihiniz</label>
+                  <label className="block text-xs font-bold text-gray-400 mb-3 uppercase tracking-widest">{t('calculator.step1')}</label>
                   <div className="grid grid-cols-2 gap-4">
                     {Object.keys(sirverProducts).map((key) => {
                       const product = sirverProducts[key];
@@ -108,7 +111,7 @@ export default function Calculator() {
 
                 {/* 2. Adım */}
                 <div>
-                  <label className="block text-xs font-bold text-gray-400 mb-3 uppercase tracking-widest">2. Mevcut Yakıtınız</label>
+                  <label className="block text-xs font-bold text-gray-400 mb-3 uppercase tracking-widest">{t('calculator.step2')}</label>
                   <div className="grid grid-cols-3 gap-3">
                     {Object.keys(marketData).map((key) => (
                       <button
@@ -129,7 +132,7 @@ export default function Calculator() {
                 {/* 3. Adım */}
                 <div>
                   <div className="flex justify-between items-end mb-4">
-                     <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">3. Yıllık Tüketim</label>
+                     <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">{t('calculator.step3')}</label>
                      <div className="text-2xl font-mono font-bold text-white flex items-center gap-2">
                         {amount.toLocaleString()}
                         <span className="text-sm text-gray-500 font-sans">{marketData[fuelType].unit}</span>
@@ -171,7 +174,7 @@ export default function Calculator() {
 
               <div className="relative z-10">
                 <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 flex items-center gap-2">
-                  <RefreshCcw size={14} className="animate-spin-slow" /> Tahmini Yıllık Avantaj
+                  <RefreshCcw size={14} className="animate-spin-slow" /> {t('calculator.resultTitle')}
                 </h3>
 
                 <div className="text-5xl md:text-7xl font-heading font-bold text-sirver-primary mb-2 tracking-tight">
@@ -183,31 +186,31 @@ export default function Calculator() {
                 </div>
 
                 <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold mb-8">
-                  <ArrowRight size={12} /> Mevcut maliyetinize göre yaklaşık kazanç
+                  <ArrowRight size={12} /> {t('calculator.resultGain')}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                    <div className="text-xs text-gray-400 uppercase font-bold mb-1">Seçilen Ürün</div>
+                    <div className="text-xs text-gray-400 uppercase font-bold mb-1">{t('calculator.selectedProduct')}</div>
                     <div className="font-bold text-sirver-secondary flex items-center gap-2">
                       {targetProduct === 'odun-cipsi' ? <Flame size={18} className="text-sirver-primary"/> : <Wheat size={18} className="text-yellow-600"/>}
                       {sirverProducts[targetProduct].name}
                     </div>
                   </div>
                   <div className="bg-green-50 p-4 rounded-xl border border-green-100">
-                    <div className="text-xs text-green-600 uppercase font-bold mb-1">Çevresel Etki</div>
+                    <div className="text-xs text-green-600 uppercase font-bold mb-1">{t('calculator.envImpact')}</div>
                     <div className="font-bold text-green-800 flex items-center gap-2">
                       <Leaf size={18} /> -{co2Savings} Ton CO₂
                     </div>
                   </div>
                 </div>
 
-                <a href="/iletisim" className="w-full py-5 bg-sirver-secondary hover:bg-sirver-primary text-white rounded-xl font-bold flex items-center justify-center gap-3 transition-all shadow-lg group hover:-translate-y-1">
-                  Detaylı Bilgi İçin İletişime Geçin
+                <a href={`${prefix}/iletisim`} className="w-full py-5 bg-sirver-secondary hover:bg-sirver-primary text-white rounded-xl font-bold flex items-center justify-center gap-3 transition-all shadow-lg group hover:-translate-y-1">
+                  {t('calculator.ctaButton')}
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </a>
                 <p className="text-[10px] text-gray-400 text-center mt-4 opacity-70">
-                  * Hesaplamalar ortalama piyasa verilerine ve kalorifik değerlere göre yapılmıştır.
+                  {t('calculator.disclaimer')}
                 </p>
               </div>
             </motion.div>

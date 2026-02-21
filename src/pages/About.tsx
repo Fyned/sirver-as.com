@@ -7,14 +7,18 @@ import SectionReveal from '../components/effects/SectionReveal';
 import ParallaxSection from '../components/effects/ParallaxSection';
 import VideoBackground from '../components/media/VideoBackground';
 import imgHQ from '../assets/images/about/hq-facility.jpg';
+import { useTranslation } from '../i18n/LanguageContext';
 
 export default function About() {
+  const { lang, t } = useTranslation();
+  const prefix = lang === 'en' ? '/en' : '';
+
   return (
     <>
       <SEOHead
-        title="Hakkımızda"
-        description="Sirver A.Ş., inşaat sektöründeki köklü tecrübesini biyokütle enerji sektörüne taşıyarak, sürdürülebilir ve yüksek kapasiteli hammadde tedariği sağlar."
-        path="/kurumsal"
+        title={t('seo.about.title')}
+        description={t('seo.about.description')}
+        path={`${prefix}/kurumsal`}
       />
 
       <main className="pt-32 pb-0">
@@ -22,16 +26,16 @@ export default function About() {
         {/* 1. GİRİŞ BÖLÜMÜ */}
         <section className="container mx-auto px-4 mb-20">
           <div className="text-center max-w-4xl mx-auto">
-            <span className="text-sirver-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Kurumsal Profil</span>
+            <span className="text-sirver-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 block">{t('about.badge')}</span>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-heading font-bold text-sirver-secondary mb-8"
             >
-              ENERJİNİN <span className="text-transparent bg-clip-text bg-gradient-to-r from-sirver-primary to-green-400">DOĞAL GÜCÜ</span>
+              {t('about.titlePart1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-sirver-primary to-green-400">{t('about.titlePart2')}</span>
             </motion.h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Sirver A.Ş., inşaat sektöründe edindiği çeyrek asırlık operasyonel disiplini, modern enerji sektörünün ihtiyaçlarıyla birleştiren yeni nesil bir tedarik şirketidir.
+              {t('about.intro')}
             </p>
           </div>
         </section>
@@ -49,7 +53,7 @@ export default function About() {
                 <div className="text-4xl md:text-5xl font-heading font-bold text-sirver-accent mb-2">
                   <AnimatedCounter end={25} duration={2} suffix="+" />
                 </div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider">Yıllık Tecrübe</div>
+                <div className="text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.experience')}</div>
               </div>
             </SectionReveal>
             <SectionReveal delay={0.1}>
@@ -57,7 +61,7 @@ export default function About() {
                 <div className="text-4xl md:text-5xl font-heading font-bold text-sirver-primary mb-2">
                   <AnimatedCounter end={1.2} duration={2} decimals={1} suffix="M" />
                 </div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider">Yıllık Ton Kapasite</div>
+                <div className="text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.capacity')}</div>
               </div>
             </SectionReveal>
             <SectionReveal delay={0.2}>
@@ -65,7 +69,7 @@ export default function About() {
                 <div className="text-4xl md:text-5xl font-heading font-bold text-blue-400 mb-2">
                   <AnimatedCounter end={50} duration={2} suffix="+" />
                 </div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider">Araç Filosu</div>
+                <div className="text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.fleet')}</div>
               </div>
             </SectionReveal>
             <SectionReveal delay={0.3}>
@@ -73,7 +77,7 @@ export default function About() {
                 <div className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">
                   %<AnimatedCounter end={100} duration={2} />
                 </div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider">Müşteri Memnuniyeti</div>
+                <div className="text-sm text-gray-400 uppercase tracking-wider">{t('about.stats.satisfaction')}</div>
               </div>
             </SectionReveal>
           </div>
@@ -84,23 +88,23 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal direction="left" className="order-2 lg:order-1 space-y-6">
               <h2 className="text-3xl font-heading font-bold text-sirver-secondary">
-                İnşaattan Enerjiye Dönüşüm
+                {t('about.story.title')}
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                Firmamız, uzun yıllar boyunca Türkiye'nin dört bir yanında büyük ölçekli altyapı, üstyapı ve taahhüt projelerini başarıyla tamamlamıştır. Bu süreçte edindiğimiz <strong>"zorlu saha koşullarında lojistik yönetim"</strong> yetkinliği, bizi rakiplerimizden ayıran en büyük güçtür.
+                {t('about.story.p1')}
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Biyokütle enerjisi, sadece bir hammadde tedariği değil, aynı zamanda ciddi bir lojistik operasyondur. Biz, fabrikanızın ihtiyaç duyduğu binlerce ton ürünü, şantiye disipliniyle yöneterek tam zamanında (JIT) teslim ediyoruz.
+                {t('about.story.p2')}
               </p>
 
               <div className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 hover:shadow-glow transition-shadow">
                   <ShieldCheck className="text-sirver-primary" />
-                  <span className="font-bold text-sirver-secondary">ISO 9001 Kalite</span>
+                  <span className="font-bold text-sirver-secondary">{t('about.certs.iso')}</span>
                 </div>
                 <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 hover:shadow-glow-accent transition-shadow">
                   <Award className="text-sirver-accent" />
-                  <span className="font-bold text-sirver-secondary">FSC Sertifikası</span>
+                  <span className="font-bold text-sirver-secondary">{t('about.certs.fsc')}</span>
                 </div>
               </div>
             </SectionReveal>
@@ -135,9 +139,9 @@ export default function About() {
                 <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-6 text-sirver-primary">
                   <Target size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-sirver-secondary mb-3">Misyonumuz</h3>
+                <h3 className="text-xl font-bold text-sirver-secondary mb-3">{t('about.mission.title')}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">
-                  Türkiye'nin yerli biyokütle kaynaklarını ekonomiye kazandırarak, sanayicinin enerji maliyetlerini düşürmek ve karbon ayak izini azaltmak.
+                  {t('about.mission.desc')}
                 </p>
               </div>
             </SectionReveal>
@@ -147,9 +151,9 @@ export default function About() {
                 <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-6 text-sirver-accent">
                   <TrendingUp size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-sirver-secondary mb-3">Vizyonumuz</h3>
+                <h3 className="text-xl font-bold text-sirver-secondary mb-3">{t('about.vision.title')}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">
-                  Teknolojik altyapısı ve sürdürülebilir üretim modelleriyle, Avrupa standartlarında hizmet veren bölgenin lider enerji tedarikçisi olmak.
+                  {t('about.vision.desc')}
                 </p>
               </div>
             </SectionReveal>
@@ -159,9 +163,9 @@ export default function About() {
                 <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-blue-600">
                   <Users size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-sirver-secondary mb-3">İnsan Kaynakları</h3>
+                <h3 className="text-xl font-bold text-sirver-secondary mb-3">{t('about.hr.title')}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">
-                  İş güvenliğini (ISG) her şeyin üzerinde tutan, uzman ve dinamik bir kadro ile sıfır hata prensibiyle çalışmak.
+                  {t('about.hr.desc')}
                 </p>
               </div>
             </SectionReveal>

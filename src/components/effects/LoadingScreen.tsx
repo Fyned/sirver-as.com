@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import logoIcon from '../../assets/icons/logo-icon.svg';
+import { useTranslation } from '../../i18n/LanguageContext';
 
 interface Props {
   /** true = ilk açılış (fade-out animasyonu ile kapanır), false = Suspense fallback */
@@ -8,6 +9,7 @@ interface Props {
 }
 
 export default function LoadingScreen({ isInitial, onComplete }: Props) {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 1 }}
@@ -60,7 +62,7 @@ export default function LoadingScreen({ isInitial, onComplete }: Props) {
             transition={{ delay: 0.8 }}
             className="text-gray-500 text-xs tracking-widest uppercase mt-2"
           >
-            Yükleniyor...
+            {t('loading.text')}
           </motion.p>
         )}
       </motion.div>

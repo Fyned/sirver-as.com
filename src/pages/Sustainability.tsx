@@ -7,14 +7,18 @@ import SectionReveal from '../components/effects/SectionReveal';
 import ParallaxSection from '../components/effects/ParallaxSection';
 import VideoBackground from '../components/media/VideoBackground';
 import imgNature from '../assets/images/sustainability/forest-nature.jpg';
+import { useTranslation } from '../i18n/LanguageContext';
 
 export default function Sustainability() {
+  const { lang, t } = useTranslation();
+  const prefix = lang === 'en' ? '/en' : '';
+
   return (
     <>
       <SEOHead
-        title="Sürdürülebilirlik"
-        description="Karbon nötr gelecek için çalışıyoruz. Sürdürülebilir orman yönetimi ve temiz enerji zinciri."
-        path="/surdurulebilirlik"
+        title={t('seo.sustainability.title')}
+        description={t('seo.sustainability.description')}
+        path={`${prefix}/surdurulebilirlik`}
       />
 
       <main className="pt-32 pb-0">
@@ -34,13 +38,13 @@ export default function Sustainability() {
               className="relative z-10"
             >
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold mb-6 border border-white/20">
-                <Leaf size={16} /> YEŞİL GELECEK VİZYONU
+                <Leaf size={16} /> {t('sustainability.badge')}
               </div>
               <h1 className="text-4xl md:text-7xl font-heading font-bold mb-6">
-                DOĞADAN ALDIĞIMIZI <br /> DOĞAYA VERİYORUZ
+                {t('sustainability.heroTitle')}
               </h1>
               <p className="text-lg md:text-xl text-green-100 max-w-2xl mx-auto">
-                Sadece enerji üretmiyoruz; atıl orman atıklarını ekonomiye kazandırarak karbon döngüsünü dengeliyoruz.
+                {t('sustainability.heroDesc')}
               </p>
             </motion.div>
           </div>
@@ -52,30 +56,30 @@ export default function Sustainability() {
             <SectionReveal direction="left">
               <div>
                 <h2 className="text-3xl font-heading font-bold text-sirver-secondary mb-6">
-                  Döngüsel Ekonomi Modeli
+                  {t('sustainability.circularTitle')}
                 </h2>
                 <div className="space-y-6">
                   <div className="flex gap-4">
                     <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 shrink-0 font-bold text-xl">1</div>
                     <div>
-                      <h4 className="font-bold text-lg text-sirver-secondary">Orman Bakımı</h4>
-                      <p className="text-gray-600 text-sm">Orman Genel Müdürlüğü kontrolünde, orman sağlığı için yapılması gereken aralama ve bakım çalışmaları.</p>
+                      <h4 className="font-bold text-lg text-sirver-secondary">{t('sustainability.step1Title')}</h4>
+                      <p className="text-gray-600 text-sm">{t('sustainability.step1Text')}</p>
                     </div>
                   </div>
                   <div className="h-8 w-0.5 bg-gray-200 ml-6"></div>
                   <div className="flex gap-4">
                     <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 shrink-0 font-bold text-xl">2</div>
                     <div>
-                      <h4 className="font-bold text-lg text-sirver-secondary">Atık Toplama</h4>
-                      <p className="text-gray-600 text-sm">Orman zemininde kalan ve yangın riski oluşturan dalların/atıkların toplanması.</p>
+                      <h4 className="font-bold text-lg text-sirver-secondary">{t('sustainability.step2Title')}</h4>
+                      <p className="text-gray-600 text-sm">{t('sustainability.step2Text')}</p>
                     </div>
                   </div>
                   <div className="h-8 w-0.5 bg-gray-200 ml-6"></div>
                   <div className="flex gap-4">
                     <div className="w-12 h-12 bg-sirver-primary rounded-full flex items-center justify-center text-white shrink-0 font-bold text-xl">3</div>
                     <div>
-                      <h4 className="font-bold text-lg text-sirver-secondary">Enerjiye Dönüşüm</h4>
-                      <p className="text-gray-600 text-sm">Toplanan atıkların cips haline getirilerek fosil yakıt yerine kullanılması.</p>
+                      <h4 className="font-bold text-lg text-sirver-secondary">{t('sustainability.step3Title')}</h4>
+                      <p className="text-gray-600 text-sm">{t('sustainability.step3Text')}</p>
                     </div>
                   </div>
                 </div>
@@ -84,13 +88,13 @@ export default function Sustainability() {
 
             <ParallaxSection speed={0.15}>
               <div className="h-[500px] rounded-3xl overflow-hidden relative shadow-xl">
-                <img src={imgNature} alt="Sürdürülebilir Orman" className="h-full w-full object-cover" />
+                <img src={imgNature} alt={t('sustainability.circularTitle')} className="h-full w-full object-cover" />
                 <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-lg">
                   <div className="flex items-center gap-4">
                     <RefreshCcw className="text-sirver-primary" size={32} />
                     <div>
-                      <div className="font-bold text-sirver-secondary text-lg">%0 Karbon Ayak İzi</div>
-                      <div className="text-xs text-gray-500">Biyokütle, büyürken emdiği karbonu geri verir.</div>
+                      <div className="font-bold text-sirver-secondary text-lg">{t('sustainability.carbonFootprint')}</div>
+                      <div className="text-xs text-gray-500">{t('sustainability.carbonDesc')}</div>
                     </div>
                   </div>
                 </div>
@@ -105,7 +109,7 @@ export default function Sustainability() {
             <div className="grid grid-cols-3 gap-3">
               {['/media/images/img03.webp', '/media/images/img06.webp', '/media/images/img11.webp'].map((src, i) => (
                 <div key={i} className="aspect-video rounded-xl overflow-hidden group">
-                  <img src={src} alt="Sürdürülebilir doğa" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                  <img src={src} alt={t('sustainability.badge')} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                 </div>
               ))}
             </div>
@@ -122,7 +126,7 @@ export default function Sustainability() {
                   <div className="text-4xl font-heading font-bold text-sirver-secondary mb-2">
                     <AnimatedCounter end={500} duration={2.5} suffix="+ Ha" />
                   </div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wide">Temizlenen Orman Alanı</div>
+                  <div className="text-sm text-gray-500 uppercase tracking-wide">{t('sustainability.statForest')}</div>
                 </div>
               </SectionReveal>
               <SectionReveal delay={0.15}>
@@ -131,7 +135,7 @@ export default function Sustainability() {
                   <div className="text-4xl font-heading font-bold text-sirver-secondary mb-2">
                     <AnimatedCounter end={250} duration={2.5} suffix="k Ton" />
                   </div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wide">Önlenen CO2 Salınımı</div>
+                  <div className="text-sm text-gray-500 uppercase tracking-wide">{t('sustainability.statCO2')}</div>
                 </div>
               </SectionReveal>
               <SectionReveal delay={0.3}>
@@ -140,7 +144,7 @@ export default function Sustainability() {
                   <div className="text-4xl font-heading font-bold text-sirver-secondary mb-2">
                     %<AnimatedCounter end={100} duration={2.5} />
                   </div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wide">Yenilenebilir Kaynak</div>
+                  <div className="text-sm text-gray-500 uppercase tracking-wide">{t('sustainability.statRenewable')}</div>
                 </div>
               </SectionReveal>
             </div>

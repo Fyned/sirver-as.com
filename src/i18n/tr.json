@@ -1,0 +1,480 @@
+{
+  "nav": {
+    "corporate": "Kurumsal",
+    "services": "Faaliyet Alanları",
+    "products": "Ürünler",
+    "sustainability": "Sürdürülebilirlik",
+    "gallery": "Galeri",
+    "contact": "İletişim",
+    "getQuote": "TEKLİF AL",
+    "location": "Konya / TÜRKİYE",
+    "iso": "ISO 9001:2015"
+  },
+  "footer": {
+    "corporate": "Kurumsal",
+    "headOffice": "MERKEZ OFİS",
+    "address": "Esmira Office Center No:1/49\nMusalla Bağları, Gürsesler Sk.\n42060 Selçuklu, Konya/TÜRKİYE",
+    "home": "Anasayfa",
+    "aboutUs": "Hakkımızda",
+    "sustainability": "Sürdürülebilirlik",
+    "gallery": "Galeri",
+    "contact": "İletişim",
+    "ourServices": "Hizmetlerimiz",
+    "industrialWoodChips": "Endüstriyel Odun Cipsi",
+    "biomassFuel": "Biyokütle Yakıtı",
+    "forestIndustryWaste": "Orman Endüstri Atıkları",
+    "logisticsSolutions": "Lojistik Çözümleri",
+    "contactUs": "Bize Ulaşın",
+    "copyright": "© {year} Sirver A.Ş. Tüm hakları saklıdır.",
+    "privacyPolicy": "Gizlilik Politikası",
+    "kvkk": "KVKK Aydınlatma Metni"
+  },
+  "hero": {
+    "badge": "Yüksek Kalorili Biyokütle Yakıtı",
+    "titleLine1": "STANDARTLARI AŞAN",
+    "titleLine2": "ODUN CİPSİ TEDARİĞİ",
+    "desc": "Enerji santralleri ve sanayi tesisleri için ISO 17225-4 standartlarında, düşük nem ve minimum kül oranına sahip <strong>G30/G50 Odun Cipsi</strong> üretiyoruz.",
+    "ctaPrimary": "Ürünlerimizi İnceleyin",
+    "ctaSecondary": "Lojistik Ağı & İletişim",
+    "pipLabel": "Canlı Operasyon",
+    "statCapacity": "Yıllık Kapasite",
+    "statSustainable": "Yerli & Sürdürülebilir",
+    "statLogistics": "Kesintisiz Lojistik"
+  },
+  "services": {
+    "title": "FAALİYET ALANLARIMIZ",
+    "subtitle": "Türkiye'nin biyokütle potansiyelini enerjiye dönüştürüyoruz.",
+    "cards": {
+      "woodChip": { "title": "Endüstriyel Odun Cipsi", "desc": "G30/G50 standartlarında, kabuksuz ve düşük nemli ormansal yakıt." },
+      "cornStalk": { "title": "Mısır Sapı Balyası", "desc": "Enerji ve hayvancılık için yüksek lifli, ekonomik büyük kare balyalar." },
+      "biomass": { "title": "Biyokütle Yakıtı", "desc": "Sanayi kazanları için özel karışımlı, yüksek kalorili reçete." },
+      "logistics": { "title": "Güçlü Lojistik", "desc": "Walking Floor tır filosu ile Türkiye geneli JIT teslimat." }
+    }
+  },
+  "calculator": {
+    "title": "Maliyet Avantajını Hesapla",
+    "subtitle": "İşletmenizin enerji giderlerini Sirver A.Ş.'nin yerli kaynaklarıyla karşılaştırın. İster <strong>Odun Cipsi</strong> ister <strong>Tarımsal Biyokütle</strong> seçin, kazancınızı görün.",
+    "step1": "1. Sirver Ürün Tercihiniz",
+    "step2": "2. Mevcut Yakıtınız",
+    "step3": "3. Yıllık Tüketim",
+    "resultTitle": "Tahmini Yıllık Avantaj",
+    "resultGain": "Mevcut maliyetinize göre yaklaşık kazanç",
+    "selectedProduct": "Seçilen Ürün",
+    "envImpact": "Çevresel Etki",
+    "ctaButton": "Detaylı Bilgi İçin İletişime Geçin",
+    "disclaimer": "* Hesaplamalar ortalama piyasa verilerine ve kalorifik değerlere göre yapılmıştır.",
+    "products": {
+      "odun-cipsi": "Endüstriyel Odun Cipsi",
+      "misir-sapi": "Mısır Sapı Balyası"
+    },
+    "fuels": {
+      "komur": "İthal Kömür",
+      "dogalgaz": "Doğalgaz",
+      "fueloil": "Fuel-Oil"
+    }
+  },
+  "cta": {
+    "title": "PROJENİZ İÇİN EN UYGUN ÇÖZÜMÜ SUNALIM",
+    "desc": "Yıllık yakıt ihtiyacınızı ve lojistik taleplerinizi uzman ekibimizle planlayın, işletmenize özel fiyat teklifimizi alın.",
+    "button": "TEKLİF AL",
+    "guarantee": "*24 saat içinde dönüş garantisi"
+  },
+  "whatsapp": {
+    "quickContact": "Hızlı İletişim",
+    "label": "WhatsApp",
+    "message": "Merhaba, odun cipsi tedariği hakkında bilgi almak istiyorum.",
+    "ariaLabel": "WhatsApp ile iletişime geç"
+  },
+  "loading": {
+    "text": "Yükleniyor..."
+  },
+  "home": {
+    "videoSection": {
+      "badge": "Sahadan Görüntüler",
+      "title": "OPERASYONLARIMIZ",
+      "description": "Orman sahasından enerji tesisine kadar tüm sürecimizi yakından görün.",
+      "cta": "Tüm Galeriyi Gör"
+    }
+  },
+  "about": {
+    "seoTitle": "Hakkımızda",
+    "seoDesc": "Sirver A.Ş., inşaat sektöründeki köklü tecrübesini biyokütle enerji sektörüne taşıyarak, sürdürülebilir ve yüksek kapasiteli hammadde tedariği sağlar.",
+    "badge": "Kurumsal Profil",
+    "titlePart1": "ENERJİNİN",
+    "titlePart2": "DOĞAL GÜCÜ",
+    "intro": "Sirver A.Ş., inşaat sektöründe edindiği çeyrek asırlık operasyonel disiplini, modern enerji sektörünün ihtiyaçlarıyla birleştiren yeni nesil bir tedarik şirketidir.",
+    "stats": {
+      "experience": "Yıllık Tecrübe",
+      "capacity": "Yıllık Ton Kapasite",
+      "fleet": "Araç Filosu",
+      "satisfaction": "Müşteri Memnuniyeti"
+    },
+    "story": {
+      "title": "İnşaattan Enerjiye Dönüşüm",
+      "p1": "Firmamız, uzun yıllar boyunca Türkiye'nin dört bir yanında büyük ölçekli altyapı, üstyapı ve taahhüt projelerini başarıyla tamamlamıştır. Bu süreçte edindiğimiz <strong>\"zorlu saha koşullarında lojistik yönetim\"</strong> yetkinliği, bizi rakiplerimizden ayıran en büyük güçtür.",
+      "p2": "Biyokütle enerjisi, sadece bir hammadde tedariği değil, aynı zamanda ciddi bir lojistik operasyondur. Biz, fabrikanızın ihtiyaç duyduğu binlerce ton ürünü, şantiye disipliniyle yöneterek tam zamanında (JIT) teslim ediyoruz."
+    },
+    "certs": {
+      "iso": "ISO 9001 Kalite",
+      "fsc": "FSC Sertifikası"
+    },
+    "mission": {
+      "title": "Misyonumuz",
+      "desc": "Türkiye'nin yerli biyokütle kaynaklarını ekonomiye kazandırarak, sanayicinin enerji maliyetlerini düşürmek ve karbon ayak izini azaltmak."
+    },
+    "vision": {
+      "title": "Vizyonumuz",
+      "desc": "Teknolojik altyapısı ve sürdürülebilir üretim modelleriyle, Avrupa standartlarında hizmet veren bölgenin lider enerji tedarikçisi olmak."
+    },
+    "hr": {
+      "title": "İnsan Kaynakları",
+      "desc": "İş güvenliğini (ISG) her şeyin üzerinde tutan, uzman ve dinamik bir kadro ile sıfır hata prensibiyle çalışmak."
+    }
+  },
+  "products": {
+    "seoTitle": "Ürünler & Teknik Özellikler",
+    "seoDesc": "G30 ve G50 standartlarında, yüksek kalorili, düşük nem oranlı endüstriyel odun cipsi (wood chips) teknik özellikleri.",
+    "badge": "Endüstriyel Biyokütle",
+    "titleLine1": "ENERJİ VERİMLİLİĞİ",
+    "titleLine2": "MAKSİMİZE EDİLDİ",
+    "subtitle": "Sanayi kazanları ve biyokütle santralleri için özel olarak işlenmiş, nemi alınmış ve elenmiş premium yakıt.",
+    "calorificLabel": "Net Kalorifik Değer",
+    "sectionTitle": "G30 / G50 Endüstriyel Cips",
+    "sectionDesc": "Sirver A.Ş. tesislerinde üretilen odun cipsleri, basit bir orman atığı değildir. Tomruklar, endüstriyel kırıcılardan (chipper) geçirilerek homojen boyutlara getirilir ve eleme ünitelerinde tozdan arındırılır.",
+    "features": [
+      "Düşük Kül Oranı (<%1.0) - Kazan ömrünü uzatır.",
+      "Optimize Nem (%20-30) - Yanma verimini artırır.",
+      "Homojen Boyut - Besleme sistemlerinde tıkanmayı önler.",
+      "Taş ve Metalden Arındırılmış - Güvenli kullanım."
+    ],
+    "detailBtn": "Detaylı Bilgi Al",
+    "specsTitle": "TEKNİK SPESİFİKASYONLAR",
+    "specsSubtitle": "ISO 17225-4 Standardına Göre Analiz Değerleri",
+    "specHeaders": {
+      "parameter": "Parametre",
+      "unit": "Birim",
+      "sirverQuality": "Sirver A1 Kalite",
+      "standard": "Standart (A2)"
+    },
+    "specRows": [
+      { "name": "Çap / Boyut", "unit": "mm", "val1": "G30 / G50", "val2": "G30 / G50" },
+      { "name": "Nem İçeriği (M)", "unit": "%", "val1": "< 20 - 25", "val2": "< 35" },
+      { "name": "Kül Oranı (A)", "unit": "%", "val1": "< 1.0", "val2": "< 1.5" },
+      { "name": "Kalorifik Değer (Net)", "unit": "kWh/kg", "val1": "4.0 - 4.2", "val2": "3.5 - 3.8" },
+      { "name": "Yoğunluk (Bulk)", "unit": "kg/m³", "val1": "250 - 300", "val2": "200 - 250" }
+    ],
+    "usageTitle": "KULLANIM ALANLARI",
+    "usageCards": [
+      { "title": "Biyokütle Santralleri", "desc": "Elektrik üretimi yapan BES tesisleri için yüksek tonajlı, kesintisiz ve standart yakıt tedariği." },
+      { "title": "Sanayi Kazanları", "desc": "Tekstil, gıda ve kağıt fabrikalarının buhar kazanlarında kömür/doğalgaz ikamesi olarak." },
+      { "title": "Peyzaj & Tarım", "desc": "Toprak nemini korumak için malçlama (mulching) ve organik gübre altlığı olarak kullanım." }
+    ]
+  },
+  "servicesPage": {
+    "seoTitle": "Faaliyet Alanları",
+    "seoDesc": "Ormansal atık yönetimi, odun cipsi ve tarımsal biyokütle (mısır sapı) balyalama hizmetlerimiz.",
+    "badge": "Entegre Atık Yönetimi",
+    "titleLine1": "DOĞANIN İKİ YÜZÜ:",
+    "titleForest": "ORMAN",
+    "titleAnd": " VE ",
+    "titleAgriculture": "TARIM",
+    "subtitle": "Türkiye'nin biyokütle potansiyelini tam kapasiteyle kullanıyoruz. Hem orman hem de tarla atıklarını enerjiye dönüştürüyoruz.",
+    "forestryTitle": "Ormansal Faaliyetler",
+    "agriculturalTitle": "Tarımsal Faaliyetler",
+    "energyLogisticsTitle": "Enerji & Lojistik",
+    "inspect": "İncele",
+    "forestryServices": [
+      {
+        "id": "odun-cipsi",
+        "title": "Endüstriyel Odun Cipsi",
+        "desc": "Yonga levha (MDF) ve kağıt endüstrisi için yüksek standartlarda hammadde tedariği.",
+        "details": ["G30/G50 Standart Boyut", "Kabuksuz Temiz Yonga", "Günlük 1000+ Ton Kapasite"]
+      },
+      {
+        "id": "orman-atiklari",
+        "title": "Orman Endüstri Atıkları",
+        "desc": "Orman sahalarındaki üretim artıklarının ve dalların ekonomiye kazandırılması.",
+        "details": ["Saha Temizliği & İyileştirme", "Yerinde Mobil Kırım", "FSC Sertifikalı Kaynak"]
+      }
+    ],
+    "agriculturalServices": [
+      {
+        "id": "misir-sapi",
+        "title": "Mısır Sapı Balyası",
+        "desc": "Biyokütle enerji santralleri ve hayvancılık için yüksek lifli, ekonomik mısır sapı balyaları.",
+        "details": ["Düşük Nem Oranı", "Yüksek Sıkıştırma (Büyük Balya)", "Enerji ve Yem Amaçlı Kullanım"]
+      },
+      {
+        "id": "tarimsal-biyokutle",
+        "title": "Tarımsal Biyokütle",
+        "desc": "Ayçiçeği sapı, kanola ve diğer tarla atıklarının enerjiye dönüşümü.",
+        "details": ["Sezonluk Düzenli Tedarik", "Yüksek Kalorifik Değer", "Çevre Dostu Geri Dönüşüm"]
+      }
+    ],
+    "commonServices": [
+      {
+        "id": "biyokutle-yakiti",
+        "title": "Biyokütle Enerji Yakıtı",
+        "desc": "Hem ormansal hem tarımsal kaynaklı, sanayi kazanlarına uygun karma veya saf yakıt.",
+        "details": ["%20-30 Nem Garantisi", "Kazan Verimliliği Odaklı", "Düşük Emisyon"]
+      },
+      {
+        "id": "lojistik",
+        "title": "Lojistik Çözümleri",
+        "desc": "Tüm ürün gruplarında tarladan/ormandan fabrikanıza JIT (Tam Zamanında) teslimat.",
+        "details": ["Walking Floor Tırlar", "Geniş Araç Filosu", "7/24 Sevkiyat"]
+      }
+    ]
+  },
+  "serviceDetail": {
+    "backToAll": "Tüm Faaliyet Alanlarına Dön",
+    "whyChoose": "Neden Tercih Edilmeli?",
+    "operationProcess": "Operasyon Süreci",
+    "technicalData": "Teknik Veriler",
+    "stockTitle": "Stok Durumu Nedir?",
+    "stockText": "Tarımsal ürünlerde sezonluk stoklarımız, ormansal ürünlerde ise yıl boyu devam eden üretimimiz mevcuttur. Güncel tonaj için arayınız.",
+    "services": {
+      "odun-cipsi": {
+        "title": "Endüstriyel Odun Cipsi",
+        "desc": "MDF, Yonga Levha ve Kağıt endüstrisi için ISO 17225-4 standartlarında üretilmiş, lif yapısı korunmuş yüksek kaliteli hammadde.",
+        "specs": [
+          { "label": "Standart", "value": "ISO 17225-4 (A1/A2)" },
+          { "label": "Boyut Sınıfı", "value": "G30 / G50 / G100" },
+          { "label": "Nem Oranı", "value": "%20 - %45 (İsteğe Bağlı)" },
+          { "label": "Kül Oranı", "value": "< %1.0" },
+          { "label": "Yabancı Madde", "value": "%0 (Metal/Taş Ayrıştırılmış)" }
+        ],
+        "features": [
+          "Tam Otomatik Kırım Hattı: Tomruklar el değmeden işlenir.",
+          "Homojen Boyutlandırma: Elek sistemimiz sayesinde toz oranı minimize edilir.",
+          "Lif Kalitesi: Bıçak açıları, lif yapısını bozmayacak şekilde ayarlanır.",
+          "Stok Kapasitesi: 50.000 Ton anlık stok ile kesintisiz tedarik."
+        ],
+        "process": [
+          { "title": "Hammadde Kabul", "text": "Ormandan gelen tomrukların nem ve çap kontrolü." },
+          { "title": "Kabuk Soyma", "text": "Lif kalitesi için ağaç kabuklarının ayrıştırılması." },
+          { "title": "Kırım (Chipping)", "text": "Endüstriyel yonga makinelerinde istenilen boyuta getirme." },
+          { "title": "Eleme & Tasnif", "text": "Toz ve irilerin ayrılması, standart boyutun garantisi." }
+        ]
+      },
+      "biyokutle-yakiti": {
+        "title": "Biyokütle Enerji Yakıtı",
+        "desc": "Enerji santralleri (BES) ve sanayi kazanları için fosil yakıtlara alternatif, yüksek kalorili ve karbon nötr enerji kaynağı.",
+        "specs": [
+          { "label": "Kalorifik Değer", "value": "3.5 - 4.2 kWh/kg" },
+          { "label": "Nem İçeriği", "value": "< %25 (Kuru Bazda)" },
+          { "label": "Klor (Cl)", "value": "< %0.02" },
+          { "label": "Kükürt (S)", "value": "< %0.05" },
+          { "label": "Yoğunluk", "value": "250-300 kg/m³" }
+        ],
+        "features": [
+          "Yüksek Verim: Düşük nem oranı sayesinde kazan verimini %15 artırır.",
+          "Düşük Emisyon: Kükürt ve azot oksit salınımı minimumdur.",
+          "Ekonomik: Doğalgaz ve ithal kömüre göre %40'a varan maliyet avantajı.",
+          "Yerli Kaynak: Kur dalgalanmalarından daha az etkilenen fiyat istikrarı."
+        ],
+        "process": [
+          { "title": "Kaynak Toplama", "text": "Orman atıkları ve tarımsal biyokütlenin toplanması." },
+          { "title": "Doğal Kurutma", "text": "Nem oranını düşürmek için açık hava sirkülasyonu." },
+          { "title": "Öğütme", "text": "Yakma sistemine uygun partikül boyutuna getirme." },
+          { "title": "Enerji Analizi", "text": "Kalori ve nem değerlerinin laboratuvar onayı." }
+        ]
+      },
+      "orman-atiklari": {
+        "title": "Orman Endüstri Atıkları",
+        "desc": "Orman sahalarında kalan dal, kök ve üretim artıklarının toplanarak ekonomiye kazandırılması ve orman yangın riskinin azaltılması.",
+        "specs": [
+          { "label": "Kaynak Türü", "value": "Dal, Tepe, Kök, Kabuk" },
+          { "label": "İşleme Yeri", "value": "Mobil Kırıcı ile Sahada" },
+          { "label": "Kapasite", "value": "Günlük 20 Hektar Temizlik" },
+          { "label": "Sertifika", "value": "FSC & OGM İzinli" }
+        ],
+        "features": [
+          "Yangın Önleme: Yanıcı materyalin ormandan uzaklaştırılması.",
+          "Toprak İyileştirme: Alanın yeni fidan dikimine hazır hale getirilmesi.",
+          "Sıfır Atık: Doğada çürümeye terk edilen değerin enerjiye dönüşümü.",
+          "Mobil Operasyon: Kendi yürür makinelerle zorlu arazide çalışma."
+        ],
+        "process": [
+          { "title": "Saha Etüdü", "text": "Atık yoğunluğunun ve arazi yapısının analizi." },
+          { "title": "Toplama", "text": "Ekskavatör ve forwarder ile atıkların biriktirilmesi." },
+          { "title": "Mobil Kırım", "text": "Sahada cips haline getirilip hacmin küçültülmesi." },
+          { "title": "Nakliye", "text": "Tesis veya santrale doğrudan sevkiyat." }
+        ]
+      },
+      "lojistik": {
+        "title": "Lojistik Çözümleri",
+        "desc": "Sadece ürün değil, zaman yönetimi satıyoruz. Walking Floor (Hareketli Taban) teknolojisi ile Türkiye'nin her yerine JIT teslimat.",
+        "specs": [
+          { "label": "Filo Büyüklüğü", "value": "50+ Özmal Tır" },
+          { "label": "Dorse Tipi", "value": "Walking Floor (92m³)" },
+          { "label": "Günlük Kapasite", "value": "1000+ Ton Sevkiyat" },
+          { "label": "Takip Sistemi", "value": "7/24 Uydu Takibi" }
+        ],
+        "features": [
+          "Hızlı Boşaltım: Damper kaldırmadan, yatay boşaltım sistemi (İSG Dostu).",
+          "Maksimum Hacim: Standart tırlara göre %30 daha fazla yük taşıma.",
+          "Fabrika İçi Yönetim: Hammadde sahanızın yönetimini üstleniyoruz.",
+          "Esnek Rota: Orman yollarından otoyollara uyumlu araç parkuru."
+        ],
+        "process": [
+          { "title": "Planlama", "text": "Müşteri üretim planına göre sevkiyat takvimi." },
+          { "title": "Yükleme", "text": "Kantarda hassas tartım ve nem kontrolü." },
+          { "title": "Canlı Takip", "text": "Aracın konumunun anlık paylaşımı." },
+          { "title": "Teslimat", "text": "Fabrika sahasına otomatik boşaltım." }
+        ]
+      },
+      "misir-sapi": {
+        "title": "Mısır Sapı Balyası",
+        "desc": "Biyokütle enerji santralleri ve hayvancılık sektörü için yüksek lifli, düşük nem oranına sahip, yüksek sıkıştırmalı kare balyalar.",
+        "specs": [
+          { "label": "Balya Tipi", "value": "Büyük Kare (Big Bale)" },
+          { "label": "Nem Oranı", "value": "< %15 - %20" },
+          { "label": "Kalorifik Değer", "value": "~3500 - 3800 kcal/kg" },
+          { "label": "Ağırlık", "value": "350 - 450 kg / Adet" },
+          { "label": "Kül Oranı", "value": "< %5.0" }
+        ],
+        "features": [
+          "Yüksek Sıkıştırma: Nakliye maliyetlerini düşüren yoğun balyalama.",
+          "Düşük Nem: Hasat sonrası tarlada doğal kurutma (sun-drying) işlemi.",
+          "Çok Amaçlı: Hem yakıt (biyokütle) hem de hayvan yemi/altlığı olarak kullanım.",
+          "Büyük Stok: Sezonluk üretimle yıl boyu tedarik garantisi."
+        ],
+        "process": [
+          { "title": "Hasat Sonrası", "text": "Dane mısır hasadından sonra sapların tarlada namlu yapılması." },
+          { "title": "Doğal Kurutma", "text": "Sapların güneş altında ideal nem oranına düşmesi." },
+          { "title": "Balyalama", "text": "Yüksek kapasiteli makinelerle sıkı kare balya yapımı." },
+          { "title": "Stok & Sevk", "text": "Yağmurdan korunaklı sahalarda stoklama ve nakliye." }
+        ]
+      },
+      "tarimsal-biyokutle": {
+        "title": "Tarımsal Biyokütle",
+        "desc": "Ayçiçeği sapı, kanola, pamuk sapı ve çeltik kavuzu gibi tarla atıklarının toplanarak temiz enerji kaynağına dönüştürülmesi.",
+        "specs": [
+          { "label": "Kaynaklar", "value": "Ayçiçeği, Pamuk, Kanola" },
+          { "label": "Form", "value": "Dökme veya Balya" },
+          { "label": "Kalori", "value": "3200 - 3800 kcal/kg" },
+          { "label": "Nem", "value": "< %25" },
+          { "label": "Sürdürülebilirlik", "value": "%100 Geri Dönüşüm" }
+        ],
+        "features": [
+          "Atık Yönetimi: Tarlada kalan ve çürümeye terk edilen atıkların değerlendirilmesi.",
+          "Ekonomik Yakıt: Odun cipsine göre daha düşük maliyetli alternatif.",
+          "Karbon Nötr: Bitkisel kökenli olduğu için karbon döngüsünü destekler.",
+          "Esnek Kullanım: Farklı kazan tiplerine uygun hammadde karışımları."
+        ],
+        "process": [
+          { "title": "Saha Analizi", "text": "Bölgesel tarım ürünlerine göre atık potansiyelinin belirlenmesi." },
+          { "title": "Toplama", "text": "Biçerdöver sonrası kalan sapların toplanması." },
+          { "title": "İşleme", "text": "Gerekirse kırma veya balyalama işlemi." },
+          { "title": "Tedarik", "text": "Enerji tesislerine doğrudan hammadde akışı." }
+        ]
+      }
+    }
+  },
+  "sustainability": {
+    "seoTitle": "Sürdürülebilirlik",
+    "seoDesc": "Karbon nötr gelecek için çalışıyoruz. Sürdürülebilir orman yönetimi ve temiz enerji zinciri.",
+    "badge": "YEŞİL GELECEK VİZYONU",
+    "heroTitle": "DOĞADAN ALDIĞIMIZI \n DOĞAYA VERİYORUZ",
+    "heroDesc": "Sadece enerji üretmiyoruz; atıl orman atıklarını ekonomiye kazandırarak karbon döngüsünü dengeliyoruz.",
+    "circularTitle": "Döngüsel Ekonomi Modeli",
+    "step1Title": "Orman Bakımı",
+    "step1Text": "Orman Genel Müdürlüğü kontrolünde, orman sağlığı için yapılması gereken aralama ve bakım çalışmaları.",
+    "step2Title": "Atık Toplama",
+    "step2Text": "Orman zemininde kalan ve yangın riski oluşturan dalların/atıkların toplanması.",
+    "step3Title": "Enerjiye Dönüşüm",
+    "step3Text": "Toplanan atıkların cips haline getirilerek fosil yakıt yerine kullanılması.",
+    "carbonFootprint": "%0 Karbon Ayak İzi",
+    "carbonDesc": "Biyokütle, büyürken emdiği karbonu geri verir.",
+    "statForest": "Temizlenen Orman Alanı",
+    "statCO2": "Önlenen CO2 Salınımı",
+    "statRenewable": "Yenilenebilir Kaynak"
+  },
+  "contact": {
+    "seoTitle": "İletişim",
+    "seoDesc": "Konya merkezli ofisimiz ve Türkiye geneli lojistik ağımızla iletişime geçin. Odun cipsi tedariği için teklif alın.",
+    "badge": "7/24 Ulaşılabilir",
+    "heroTitle": "BİZE ULAŞIN",
+    "heroDesc": "Enerji ve hammadde tedariği süreçleriniz için uzman ekibimizle görüşün.",
+    "heroDesc2": "Size en uygun lojistik ve yakıt çözümünü sunmak için buradayız.",
+    "contactInfo": "İletişim Bilgileri",
+    "headOffice": "Merkez Ofis",
+    "getDirections": "Yol Tarifi Al",
+    "phoneWhatsApp": "Telefon / WhatsApp",
+    "openNow": "Şimdi Açık",
+    "email": "E-Posta",
+    "emailReply": "24 saat içinde yanıtlanır",
+    "writeUs": "Bize Yazın",
+    "fullName": "Adınız Soyadınız",
+    "fullNamePlaceholder": "Örn: Ahmet Yılmaz",
+    "companyName": "Firma Adı",
+    "companyPlaceholder": "Firma Ünvanı",
+    "phone": "Telefon",
+    "phonePlaceholder": "05XX XXX XX XX",
+    "subject": "Konu",
+    "subjects": ["Odun Cipsi Tedariği", "Mısır Sapı Balyası", "Lojistik Hizmeti", "Diğer"],
+    "message": "Mesajınız",
+    "messagePlaceholder": "Talebinizi detaylandırın...",
+    "sendButton": "MESAJI GÖNDER",
+    "mapTitle": "Esmira Office Center Konumu"
+  },
+  "gallery": {
+    "seoTitle": "Galeri",
+    "seoDesc": "Sirver A.Ş. saha operasyonları, tesis görüntüleri ve lojistik faaliyetlerinin video ve fotoğraf galerisi.",
+    "badge": "Medya Arşivi",
+    "titleStart": "SAHADAN ",
+    "titleHighlight": "GÖRÜNTÜLER",
+    "subtitle": "Orman sahasından enerji tesisine kadar tüm operasyonlarımızı yakından görün.",
+    "all": "Tümü",
+    "videos": "Videolar",
+    "photos": "Fotoğraflar",
+    "video": "Video",
+    "photo": "Foto",
+    "itemsFound": "{count} öğe bulundu",
+    "loadMore": "Daha Fazla Yükle",
+    "remaining": "{count} kaldı"
+  },
+  "media": {
+    "categories": {
+      "all": "Tümü",
+      "operation": "Operasyon",
+      "logistics": "Lojistik",
+      "facility": "Tesis",
+      "field": "Saha",
+      "product": "Ürün",
+      "nature": "Doğa"
+    }
+  },
+  "seo": {
+    "siteName": "Sirver A.Ş.",
+    "home": {
+      "title": "Endüstriyel Biyokütle ve Odun Cipsi Tedariği",
+      "description": "1.2 Milyon ton kapasite ile enerji sektörüne odun cipsi ve biyokütle tedariği sağlıyoruz. İnşaat kökenli lojistik güç."
+    },
+    "about": {
+      "title": "Hakkımızda",
+      "description": "Sirver A.Ş., inşaat sektöründeki köklü tecrübesini biyokütle enerji sektörüne taşıyarak, sürdürülebilir ve yüksek kapasiteli hammadde tedariği sağlar."
+    },
+    "products": {
+      "title": "Ürünler & Teknik Özellikler",
+      "description": "G30 ve G50 standartlarında, yüksek kalorili, düşük nem oranlı endüstriyel odun cipsi (wood chips) teknik özellikleri."
+    },
+    "services": {
+      "title": "Faaliyet Alanları",
+      "description": "Ormansal atık yönetimi, odun cipsi ve tarımsal biyokütle (mısır sapı) balyalama hizmetlerimiz."
+    },
+    "sustainability": {
+      "title": "Sürdürülebilirlik",
+      "description": "Karbon nötr gelecek için çalışıyoruz. Sürdürülebilir orman yönetimi ve temiz enerji zinciri."
+    },
+    "contact": {
+      "title": "İletişim",
+      "description": "Konya merkezli ofisimiz ve Türkiye geneli lojistik ağımızla iletişime geçin. Odun cipsi tedariği için teklif alın."
+    },
+    "gallery": {
+      "title": "Galeri",
+      "description": "Sirver A.Ş. saha operasyonları, tesis görüntüleri ve lojistik faaliyetlerinin video ve fotoğraf galerisi."
+    }
+  }
+}

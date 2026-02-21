@@ -1,27 +1,31 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram, ArrowRight, ChevronRight } from 'lucide-react';
 import logoFull from '../../assets/icons/logo-full.svg';
+import { useTranslation } from '../../i18n/LanguageContext';
 
 export default function Footer() {
+  const { lang, t } = useTranslation();
+  const prefix = lang === 'en' ? '/en' : '';
+
   return (
     <footer className="bg-sirver-secondary text-white pt-20 pb-10 border-t border-white/5 font-sans relative z-20">
       <div className="container mx-auto px-4">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          
+
           {/* KOLON 1: Logo & Adres */}
           <div className="space-y-6">
             <div className="w-48">
-              <img 
-                src={logoFull} 
-                alt="Sirver A.Ş. Logo" 
-                className="h-12 brightness-0 invert opacity-90" 
+              <img
+                src={logoFull}
+                alt="Sirver A.Ş. Logo"
+                className="h-12 brightness-0 invert opacity-90"
               />
             </div>
             <div className="text-gray-400 text-sm leading-relaxed flex items-start gap-3">
               <MapPin className="text-sirver-primary shrink-0 mt-1" size={20} />
               <span>
-                <strong>MERKEZ OFİS</strong><br/>
+                <strong>{t('footer.headOffice')}</strong><br/>
                 Esmira Office Center No:1/49<br/>
                 Musalla Bağları, Gürsesler Sk.<br/>
                 42060 Selçuklu, Konya/TÜRKİYE
@@ -31,42 +35,42 @@ export default function Footer() {
 
           {/* KOLON 2: Menü */}
           <div>
-            <h4 className="font-heading text-lg font-bold mb-6 text-white border-b-2 border-sirver-primary pb-2 inline-block">Kurumsal</h4>
+            <h4 className="font-heading text-lg font-bold mb-6 text-white border-b-2 border-sirver-primary pb-2 inline-block">{t('footer.corporate')}</h4>
             <ul className="space-y-3 text-gray-400 text-sm">
-              <li><Link to="/" className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> Anasayfa</Link></li>
-              <li><Link to="/kurumsal" className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> Hakkımızda</Link></li>
-              <li><Link to="/surdurulebilirlik" className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> Sürdürülebilirlik</Link></li>
-              <li><Link to="/galeri" className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> Galeri</Link></li>
-              <li><Link to="/iletisim" className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> İletişim</Link></li>
+              <li><Link to={`${prefix}/`} className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> {t('footer.home')}</Link></li>
+              <li><Link to={`${prefix}/kurumsal`} className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> {t('footer.aboutUs')}</Link></li>
+              <li><Link to={`${prefix}/surdurulebilirlik`} className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> {t('footer.sustainability')}</Link></li>
+              <li><Link to={`${prefix}/galeri`} className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> {t('footer.gallery')}</Link></li>
+              <li><Link to={`${prefix}/iletisim`} className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"><ChevronRight size={16} className="text-sirver-primary"/> {t('footer.contact')}</Link></li>
             </ul>
           </div>
 
-          {/* KOLON 3: Hizmetlerimiz (Görseldeki Gibi) */}
+          {/* KOLON 3: Hizmetlerimiz */}
           <div>
-            <h4 className="font-heading text-lg font-bold mb-6 text-white border-b-2 border-sirver-primary pb-2 inline-block">Hizmetlerimiz</h4>
+            <h4 className="font-heading text-lg font-bold mb-6 text-white border-b-2 border-sirver-primary pb-2 inline-block">{t('footer.ourServices')}</h4>
             <ul className="space-y-3 text-gray-400 text-sm">
                <li className="flex items-center gap-2 hover:text-white transition-colors cursor-default group">
-                 <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/> 
-                 Endüstriyel Odun Cipsi
+                 <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/>
+                 {t('footer.serviceWoodChip')}
                </li>
                <li className="flex items-center gap-2 hover:text-white transition-colors cursor-default group">
-                 <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/> 
-                 Biyokütle Yakıtı
+                 <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/>
+                 {t('footer.serviceBiomass')}
                </li>
                <li className="flex items-center gap-2 hover:text-white transition-colors cursor-default group">
-                 <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/> 
-                 Orman Endüstri Atıkları
+                 <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/>
+                 {t('footer.serviceForestWaste')}
                </li>
                <li className="flex items-center gap-2 hover:text-white transition-colors cursor-default group">
-                 <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/> 
-                 Lojistik Çözümleri
+                 <ArrowRight size={16} className="text-sirver-primary group-hover:translate-x-1 transition-transform"/>
+                 {t('footer.serviceLogistics')}
                </li>
             </ul>
           </div>
 
           {/* KOLON 4: İletişim */}
           <div>
-            <h4 className="font-heading text-lg font-bold mb-6 text-white border-b-2 border-sirver-primary pb-2 inline-block">Bize Ulaşın</h4>
+            <h4 className="font-heading text-lg font-bold mb-6 text-white border-b-2 border-sirver-primary pb-2 inline-block">{t('footer.contactUs')}</h4>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li className="flex items-center gap-3 bg-white/5 p-4 rounded-lg border border-white/5 hover:border-sirver-primary/50 transition-colors group">
                 <Phone className="text-sirver-primary group-hover:text-white transition-colors" size={24} />
@@ -81,12 +85,12 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-            
+
             {/* Sosyal Medya */}
             <div className="mt-8">
-              <a 
-                href="https://www.instagram.com/sirver_tarim/" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/sirver_tarim/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-500 p-[2px] rounded-full inline-block hover:scale-110 transition-transform"
               >
@@ -99,10 +103,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Sirver A.Ş. Tüm hakları saklıdır.</p>
+          <p>© {new Date().getFullYear()} Sirver A.Ş. {t('footer.allRights')}</p>
           <div className="mt-2 md:mt-0 flex gap-4 items-center">
-            <span className="hover:text-white cursor-pointer">Gizlilik Politikası</span>
-            <span className="hover:text-white cursor-pointer">KVKK Aydınlatma Metni</span>
+            <span className="hover:text-white cursor-pointer">{t('footer.privacy')}</span>
+            <span className="hover:text-white cursor-pointer">{t('footer.kvkk')}</span>
             <span className="text-gray-600">|</span>
             <a href="https://dmckreatif.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               Created by <span className="font-bold text-gray-400 hover:text-sirver-primary transition-colors">DMC Kreatif</span>

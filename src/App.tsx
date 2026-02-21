@@ -48,6 +48,7 @@ function App() {
       <div className="flex-grow">
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
+            {/* Türkçe route'lar */}
             <Route path="/" element={<Home />} />
             <Route path="/kurumsal" element={<About />} />
             <Route path="/hizmetler" element={<ServicesPage />} />
@@ -56,6 +57,17 @@ function App() {
             <Route path="/surdurulebilirlik" element={<Sustainability />} />
             <Route path="/galeri" element={<Gallery />} />
             <Route path="/iletisim" element={<Contact />} />
+
+            {/* İngilizce route'lar (/en prefix) */}
+            <Route path="/en" element={<Home />} />
+            <Route path="/en/kurumsal" element={<About />} />
+            <Route path="/en/hizmetler" element={<ServicesPage />} />
+            <Route path="/en/hizmetler/:slug" element={<ServiceDetail />} />
+            <Route path="/en/urunler" element={<Products />} />
+            <Route path="/en/surdurulebilirlik" element={<Sustainability />} />
+            <Route path="/en/galeri" element={<Gallery />} />
+            <Route path="/en/iletisim" element={<Contact />} />
+
             <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>
