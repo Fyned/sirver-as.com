@@ -99,10 +99,10 @@ export default function Hero() {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImage}
-            initial={{ opacity: 0, scale: 1.03 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: 'easeInOut' }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
             className="absolute inset-0"
           >
             <img
@@ -111,6 +111,7 @@ export default function Hero() {
               width={1920}
               height={1080}
               fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -134,8 +135,8 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Particle overlay - azaltılmış sayı */}
-      <ParticleBackground count={8} className="z-[1] opacity-30" />
+      {/* Particle overlay - mobilde kapalı, masaüstünde minimal */}
+      {!isMobile && <ParticleBackground count={6} className="z-[1] opacity-30" />}
 
       {/* 2. CONTENT */}
       <div className="container mx-auto px-4 relative z-10 text-center text-white flex flex-col items-center justify-center h-full pb-24 md:pb-20">
@@ -143,51 +144,33 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto"
         >
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+          <span
             className="inline-block py-2 px-4 rounded-full bg-sirver-primary/80 border border-sirver-primary/50 text-white text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm shadow-lg"
           >
             {t('hero.badge')}
-          </motion.span>
+          </span>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight drop-shadow-2xl tracking-tight">
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
-              className="block text-white mb-2"
-            >
+            <span className="block text-white mb-2">
               {t('hero.titleLine1')}
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.7 }}
-              className="text-transparent bg-clip-text bg-gradient-to-r from-sirver-primary via-green-400 to-sirver-accent"
-            >
+            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sirver-primary via-green-400 to-sirver-accent">
               {t('hero.titleLine2')}
-            </motion.span>
+            </span>
           </h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 font-medium drop-shadow-md leading-relaxed"
-          >
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 font-medium drop-shadow-md leading-relaxed">
             {t('hero.desc')}
-          </motion.p>
+          </p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 0.8 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
           className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full"
         >
           <a href={`${prefix}/urunler`} className="w-full sm:w-auto group bg-sirver-primary hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">

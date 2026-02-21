@@ -1,12 +1,10 @@
-import { Suspense, lazy, useState, useEffect } from 'react';
+import { Suspense, lazy, useState, useEffect, useCallback } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import WhatsAppBtn from './components/ui/WhatsAppBtn';
 import ScrollToTop from './components/utils/ScrollToTop';
 import ScrollProgress from './components/effects/ScrollProgress';
-import LoadingScreen from './components/effects/LoadingScreen';
 
 // Lazy Loading
 const Home = lazy(() => import('./pages/Home'));
@@ -18,58 +16,62 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 
+/** Minimal inline loading fallback — framer-motion gerektirmez, CLS sıfır */
+function InlineLoader() {
+  return (
+    <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="w-10 h-10 border-3 border-gray-200 border-t-sirver-primary rounded-full animate-spin" />
+    </div>
+  );
+}
+
 function App() {
   const [appReady, setAppReady] = useState(false);
 
   useEffect(() => {
-    // Minimum 300ms loading screen göster (daha kısa = daha hızlı FCP)
-    const minDelay = new Promise((r) => setTimeout(r, 300));
+    // Minimum 200ms bekle (flash yok), font ve Home chunk'ı paralel bekle
+    const minDelay = new Promise((r) => setTimeout(r, 200));
 
-    // Fontlar hazır olana kadar bekle (max 1.5s timeout)
+    // Font max 1s bekle — display:optional ile swap CLS olmaz
     const fontsReady = Promise.race([
       document.fonts?.ready ?? Promise.resolve(),
-      new Promise((r) => setTimeout(r, 1500)),
+      new Promise((r) => setTimeout(r, 1000)),
     ]);
 
-    // Home chunk'ı preload et (lazy import zaten cache'ler)
+    // Home chunk'ı preload et
     const homeReady = import('./pages/Home').then(() => {});
 
-    // Hero görselini preload et (max 2s timeout)
-    const heroReady = Promise.race([
-      new Promise<void>((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve();
-        img.onerror = () => resolve();
-        import('./assets/images/home/stockyard-dark.jpg')
-          .then((mod) => { img.src = mod.default; })
-          .catch(() => resolve());
-      }),
-      new Promise<void>((r) => setTimeout(r, 2000)),
-    ]);
-
-    // Tüm kritik kaynaklar hazır olduğunda loading screen'i kapat
-    Promise.all([minDelay, fontsReady, homeReady, heroReady]).then(() => {
+    Promise.all([minDelay, fontsReady, homeReady]).then(() => {
       setAppReady(true);
     });
 
-    // Güvenlik: 3 saniyede hiçbir şey olmazsa zorla aç
-    const safetyTimeout = setTimeout(() => setAppReady(true), 3000);
+    // Güvenlik: 2 saniyede hiçbir şey olmazsa zorla aç
+    const safetyTimeout = setTimeout(() => setAppReady(true), 2000);
     return () => clearTimeout(safetyTimeout);
   }, []);
 
+  // Native loader'ı kaldır (CSS spinner, index.html'de tanımlı)
+  const removeNativeLoader = useCallback(() => {
+    const loader = document.getElementById('native-loader');
+    if (loader) {
+      loader.style.opacity = '0';
+      loader.style.transition = 'opacity 0.3s ease';
+      setTimeout(() => loader.remove(), 300);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (appReady) removeNativeLoader();
+  }, [appReady, removeNativeLoader]);
+
   return (
     <div className="flex flex-col min-h-screen font-sans bg-[#ECEFF1]">
-      {/* İlk açılış loading screen'i */}
-      <AnimatePresence mode="wait">
-        {!appReady && <LoadingScreen key="initial-loader" isInitial />}
-      </AnimatePresence>
-
       <ScrollToTop />
       <ScrollProgress />
       <Header />
 
       <div className="flex-grow">
-        <Suspense fallback={<LoadingScreen />}>
+        <Suspense fallback={<InlineLoader />}>
           <Routes>
             {/* Türkçe route'lar */}
             <Route path="/" element={<Home />} />

@@ -1,1 +1,0 @@
-var e=`/assets/stockyard-dark-BQz2Da3D.jpg`;export{e as t};

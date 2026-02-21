@@ -162,9 +162,9 @@ export default function Calculator() {
           <div className="relative lg:sticky lg:top-32">
             <motion.div
               key={`${targetProduct}-${savings}`}
-              initial={{ scale: 0.95, opacity: 0.5 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+              initial={{ opacity: 0.5 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
               className="bg-gradient-to-br from-white to-gray-200 text-sirver-secondary rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden border-4 border-white/10"
             >
               {/* Arka Plan İkonu */}

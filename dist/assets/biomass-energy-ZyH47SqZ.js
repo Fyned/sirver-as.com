@@ -1,0 +1,1 @@
+import{t as e}from"./biomass-energy-D8iIb7WI.js";export{e as default};

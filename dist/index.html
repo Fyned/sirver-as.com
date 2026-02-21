@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Async font loading (render-blocking değil) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" /></noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=optional" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=optional" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=optional" /></noscript>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,12 +40,15 @@
     <style>
       *,*::before,*::after{box-sizing:border-box;margin:0}
       html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-      body{font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#ECEFF1;color:#1A1A1A}
+      body{font-family:'Manrope','Manrope Fallback',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#ECEFF1;color:#1A1A1A}
       #root{display:flex;flex-direction:column;min-height:100vh}
       /* Loading screen — JS yüklenene kadar görünür */
-      .initial-loader{position:fixed;inset:0;z-index:9999;background:#1A2332;display:flex;align-items:center;justify-content:center}
-      .initial-loader::after{content:'';width:40px;height:40px;border:3px solid rgba(255,255,255,.1);border-top-color:#2E7D32;border-radius:50%;animation:spin .6s linear infinite}
+      .initial-loader{position:fixed;inset:0;z-index:9999;background:#111827;display:flex;align-items:center;justify-content:center}
+      .initial-loader::after{content:'';width:40px;height:40px;border:3px solid rgba(255,255,255,.1);border-top-color:#1B5E20;border-radius:50%;animation:spin .6s linear infinite}
       @keyframes spin{to{transform:rotate(360deg)}}
+      /* Font size-adjust: system font ile custom font arasındaki metrik farkı sıfırla */
+      @font-face{font-family:'Manrope Fallback';src:local('Segoe UI'),local('system-ui'),local('Roboto'),local('Helvetica Neue'),local('Arial');size-adjust:104%;ascent-override:95%;descent-override:22%;line-gap-override:0%}
+      @font-face{font-family:'Oswald Fallback';src:local('Segoe UI'),local('system-ui'),local('Roboto'),local('Helvetica Neue'),local('Arial');size-adjust:88%;ascent-override:110%;descent-override:28%;line-gap-override:0%}
     </style>
 
     <!-- JSON-LD Organization Schema -->
@@ -77,11 +80,11 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-DFsgsqFQ.js"></script>
+    <script type="module" crossorigin src="/assets/index-D52I6VOt.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-Cn8xt2Gj.js">
     <link rel="modulepreload" crossorigin href="/assets/motion-cq-IOset.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-CVw5nxiM.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-BEsMfMAS.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-BqGt156_.css">
   </head>
   <body>
     <!-- Native loading indicator — React yüklenene kadar gösterilir -->
@@ -89,11 +92,13 @@
       <div class="initial-loader" id="native-loader"></div>
     </div>
     <script>
-      // React render edince native loader'ı kaldır
-      const observer = new MutationObserver(() => {
-        const loader = document.getElementById('native-loader');
+      // React render edince native loader'ı fade-out ile kaldır
+      var observer = new MutationObserver(function() {
+        var loader = document.getElementById('native-loader');
         if (loader && document.getElementById('root').children.length > 1) {
-          loader.remove();
+          loader.style.transition = 'opacity 0.3s ease';
+          loader.style.opacity = '0';
+          setTimeout(function() { if (loader.parentNode) loader.remove(); }, 300);
           observer.disconnect();
         }
       });
