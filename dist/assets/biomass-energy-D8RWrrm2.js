@@ -1,0 +1,1 @@
+var e=`/assets/biomass-energy-CRcT9B76.jpg`;export{e as t};

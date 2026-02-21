@@ -42,7 +42,7 @@ export default function Hero() {
           });
         });
       });
-    }, 2000); // 2sn sonra yüklemeye başla (hero açılışı tamamlansın)
+    }, 3000); // 3sn sonra yüklemeye başla (hero açılışı tamamlansın)
     return () => clearTimeout(timer);
   }, []);
 

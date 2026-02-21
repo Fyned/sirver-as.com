@@ -22,14 +22,27 @@ function App() {
   const [appReady, setAppReady] = useState(false);
 
   useEffect(() => {
-    // Minimum 800ms loading screen göster + DOM hazır olana kadar bekle
-    const minDelay = new Promise((r) => setTimeout(r, 800));
+    // Minimum 600ms loading screen göster
+    const minDelay = new Promise((r) => setTimeout(r, 600));
 
-    const fontsReady = document.fonts
-      ? document.fonts.ready
-      : Promise.resolve();
+    // Fontlar hazır olana kadar bekle
+    const fontsReady = document.fonts?.ready ?? Promise.resolve();
 
-    Promise.all([minDelay, fontsReady]).then(() => {
+    // Home chunk'ı preload et (lazy import zaten cache'ler)
+    const homeReady = import('./pages/Home').then(() => {});
+
+    // Hero görselini preload et
+    const heroReady = new Promise<void>((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve();
+      img.onerror = () => resolve(); // hata olsa da devam et
+      import('./assets/images/home/stockyard-dark.jpg')
+        .then((mod) => { img.src = mod.default; })
+        .catch(() => resolve());
+    });
+
+    // Tüm kritik kaynaklar hazır olduğunda loading screen'i kapat
+    Promise.all([minDelay, fontsReady, homeReady, heroReady]).then(() => {
       setAppReady(true);
     });
   }, []);

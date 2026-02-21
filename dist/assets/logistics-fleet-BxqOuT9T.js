@@ -1,0 +1,1 @@
+var e=`/assets/logistics-fleet-B9AvFVC4.jpg`;export{e as t};

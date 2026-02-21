@@ -36,7 +36,7 @@ export default function SectionReveal({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, margin: '-50px' }}
+      viewport={{ once, margin: '-80px' }}
       variants={variants}
       transition={{ duration, delay, ease: 'easeOut' }}
       className={className}

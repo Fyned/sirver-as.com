@@ -27,6 +27,7 @@ export default function ParticleBackground({ count = 15, className = '' }: { cou
             top: `${p.top}%`,
             opacity: p.opacity,
             animation: `float ${p.duration}s ease-in-out ${p.delay}s infinite`,
+            willChange: 'transform',
           }}
         />
       ))}

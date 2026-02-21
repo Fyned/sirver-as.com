@@ -1,0 +1,1 @@
+var e=`/assets/wood-chips-closeup-BdjwJmda.jpg`;export{e as t};

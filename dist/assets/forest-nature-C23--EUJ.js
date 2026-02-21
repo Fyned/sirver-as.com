@@ -1,1 +1,0 @@
-var e=`/assets/forest-nature-tEj8Qduo.jpg`;export{e as t};

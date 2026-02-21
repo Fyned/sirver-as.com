@@ -1,5 +1,4 @@
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap');
+/* Google Fonts — index.html'de async <link> ile yükleniyor, @import kaldırıldı */
 
 @tailwind base;
 @tailwind components;

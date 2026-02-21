@@ -1,1 +1,0 @@
-import{t as e}from"./wood-chips-closeup-8giPjxhn.js";export{e as default};

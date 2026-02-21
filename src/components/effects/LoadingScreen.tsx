@@ -17,7 +17,7 @@ export default function LoadingScreen({ isInitial, onComplete }: Props) {
         ? {
             animate: { opacity: 1 },
             exit: { opacity: 0, y: -20 },
-            transition: { duration: 0.6, ease: 'easeInOut' },
+            transition: { duration: 0.4, ease: 'easeInOut' },
             onAnimationComplete: (def: { opacity?: number }) => {
               if (def.opacity === 0 && onComplete) onComplete();
             },

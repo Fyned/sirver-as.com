@@ -1,0 +1,1 @@
+var e=`/assets/forest-nature-DGllJeQ7.jpg`;export{e as t};
