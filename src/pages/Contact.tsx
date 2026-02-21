@@ -92,7 +92,7 @@ export default function Contact() {
                     <div>
                       <h4 className="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">{t('contact.phoneWhatsApp')}</h4>
                       <p className="text-gray-600">
-                        <a href="tel:+905309235033" className="hover:text-sirver-primary transition-colors text-xl font-bold text-sirver-secondary block">+90 530 923 50 33</a>
+                        <a href="tel:+905338111594" className="hover:text-sirver-primary transition-colors text-xl font-bold text-sirver-secondary block">+90 533 811 15 94</a>
                       </p>
                       <p className="text-xs text-green-600 mt-1 font-medium flex items-center gap-1">
                         <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> {t('contact.openNow')}

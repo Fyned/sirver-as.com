@@ -50,8 +50,8 @@ export default function Header() {
             <a href="mailto:info@sirver-as.com" className="flex items-center gap-2 hover:text-white transition-colors">
               <Mail size={14} className="text-sirver-accent" /> info@sirver-as.com
             </a>
-            <a href="tel:+905309235033" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Phone size={14} className="text-sirver-accent" /> +90 530 923 50 33
+            <a href="tel:+905338111594" className="flex items-center gap-2 hover:text-white transition-colors">
+              <Phone size={14} className="text-sirver-accent" /> +90 533 811 15 94
             </a>
           </div>
           <div className="flex gap-4 items-center">
@@ -134,8 +134,8 @@ export default function Header() {
           </Link>
 
           {/* Mobil menü telefon */}
-          <a href="tel:+905309235033" className="flex items-center gap-2 text-sirver-secondary font-bold text-sm">
-            <Phone size={16} className="text-sirver-primary" /> +90 530 923 50 33
+          <a href="tel:+905338111594" className="flex items-center gap-2 text-sirver-secondary font-bold text-sm">
+            <Phone size={16} className="text-sirver-primary" /> +90 533 811 15 94
           </a>
 
           <LanguageSwitcher className="mt-2" />
